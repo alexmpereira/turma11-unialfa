@@ -15,7 +15,6 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::get();
-        dd($clients);
 
         return view('welcome', [
             'clients' => $clients
