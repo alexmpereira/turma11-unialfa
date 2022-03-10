@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -13,7 +14,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view ("Welcome meu rei");
+        $clients = Client::get();
+        return view ('welcome meu rei', [
+            'clients' => $clients
+        ]);
     }
 
     /**
