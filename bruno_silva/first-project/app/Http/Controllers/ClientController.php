@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -13,7 +14,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::get();
+        return view('clients.index', [
+            'clients' => $clients
+        ]);
     }
 
     /**
@@ -43,9 +47,12 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        $client = Client::find($id);
+        return view('clients.show', [
+            'client' => $client
+        ]);
     }
 
     /**
