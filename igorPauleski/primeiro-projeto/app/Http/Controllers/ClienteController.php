@@ -16,7 +16,7 @@ class ClienteController extends Controller
     {
         $clients = Client::get();
 
-        return view('welcome', [
+        return view('clients.index', [
             'clients' =>$clients
         ]);
     }
@@ -50,7 +50,12 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+        //TODO busar um único cliente
+        $client = Client::find($id);
+
+        return view('clients.show', [
+            'client' => $client
+        ]);
     }
 
     /**
