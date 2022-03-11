@@ -14,8 +14,13 @@ class ClientController extends Controller
      */
     public function index()
     {
+        //TODO buscar clientes no banco
         $clients = Client::get();
-        return view('welcome', [
+
+        //TODO verificar se veio vazio
+
+        //TODO validar se cnpj_cpf é valido
+        return view('clients.index', [
             'clients' => $clients
         ]);
     }
@@ -49,7 +54,12 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        //TODO buscar um unico cliente
+        $client = Client::find($id);
+
+        return view('clients.show', [
+            'client' => $client
+        ]);
     }
 
     /**
