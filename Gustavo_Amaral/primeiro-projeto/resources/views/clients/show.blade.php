@@ -14,7 +14,7 @@
                 <p><strong>Observação</strong>: {{ $client->observacao }}</p>
                 <br>
                 <a class="btn btn-success" href="{{ route('clients.index') }}">
-                    Voltar para a lista de clientes
+                    Voltar para a lista de cliente
                 </a>
                 <p><strong></strong></p>
             </div>
