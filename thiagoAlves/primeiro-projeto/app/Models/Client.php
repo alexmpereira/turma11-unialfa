@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+
+    public static function deleteClient($id)
+    {
+        return Client::where('id', $id)->delete();
+    }
 }
