@@ -15,7 +15,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::get();
-        return view('welcome', [
+        return view('clients.index', [
             'clients' => $clients
         ]);
     }
@@ -47,9 +47,13 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        //TODO buscar um unico cliente
+        $client = Client::find($id);
+        return view('clients.show', [
+            'client' => $client
+        ]);
     }
 
     /**
