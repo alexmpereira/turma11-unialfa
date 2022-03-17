@@ -15,7 +15,7 @@ use App\Http\Controllers\ClientController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
 });
 
 Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
