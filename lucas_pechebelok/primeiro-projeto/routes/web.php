@@ -13,8 +13,10 @@ use App\Http\Controllers\ClientController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/clients', [ClientController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/clients/{id}', [ClientController::class, 'show'])->name('clients.show');
