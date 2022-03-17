@@ -14,8 +14,22 @@ class ClientController extends Controller
         //TODO verificar se veio vazio
 
         //TODO validar se cpnj_cpf é válido
-        return view('welcome', [
-            'clients' =>$clients
+        return view('clients.index', [
+            'clients' => $clients
         ]);
     }
+
+    public function destroy($id) {
+        return Client::deleteClient($id);
+    }
+
+    public function show(int $id){
+        //TODO buscar um único cliente
+        $client = Client::find($id);
+
+        return view('clients.show', [
+            'client' => $client
+        ]);
+    }
+
 }
