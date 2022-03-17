@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/clients', [ClienteController::class, 'index']);
+Route::get('/clients', [ClienteController::class, 'index'])->name('clients.index');
+Route::get('/clients/{id}', [ClienteController::class, 'show'])->name('clients.show');
