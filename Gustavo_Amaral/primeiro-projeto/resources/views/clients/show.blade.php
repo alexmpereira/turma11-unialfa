@@ -1,4 +1,4 @@
-@section('app')
+@extends('app')
 @section('title', 'detalhes do cliente')
 
 @section('content')
@@ -12,6 +12,7 @@
                 <p><strong>Nome</strong>: {{ $client->nome }}</p>
                 <p><strong>Endereço</strong>: {{ $client->endereco }}</p>
                 <p><strong>Observação</strong>: {{ $client->observacao }}</p>
+                <p><strong>Ação</strong>: {{ $client->acao }}</p>
                 <br>
                 <a class="btn btn-success" href="{{ route('clients.index') }}">
                     Voltar para a lista de cliente

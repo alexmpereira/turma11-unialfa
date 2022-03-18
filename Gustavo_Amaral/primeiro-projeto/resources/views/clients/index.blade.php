@@ -9,6 +9,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Endereço</th>
                     <th scope="col">Observação</th>
+                    <th scope="col">Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,11 +21,15 @@
                                 {{ $client->nome}}
                             </a>
                         </td>
-                        <td>{{ $client->endereço }}</td>
-                        <td></td>
+                        <td>{{ $client->endereco }}</td>
+                        <td>{{ $client->observacao }}</td>
+                        <td> </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
+
+    <a class="btn btn-success" href="{{ route('clients.create') }}">
+        Novo Cliente
+    </a>
 @endsection
