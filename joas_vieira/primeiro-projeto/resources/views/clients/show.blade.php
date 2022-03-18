@@ -14,7 +14,7 @@
             <p><strong>Address</strong>: {{ $client->address }}</p>
             <p><strong>Observation</strong>: {{ $client->observation }}</p>
             <br>
-            <a class="btn btn-success" href="{{ route('clients.index') }}">Voltar</a>
+            <a class="btn btn-success" href="{{ route('clients.index') }}">To Back</a>
         </div>
     </div>
 @endsection

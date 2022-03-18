@@ -3,7 +3,7 @@
 @section('title', 'Client list')
 
 @section('content')
-    <h1>Lista de clientes</h1>
+    <h1>Client List</h1>
     <table class="table">
         <thead>
             <tr>
@@ -28,4 +28,6 @@
             @endforeach
         </tbody>
     </table>
+
+    <a class= 'btn btn-success' href="{{ route('clients.create') }}">New Client</a>
 @endsection
