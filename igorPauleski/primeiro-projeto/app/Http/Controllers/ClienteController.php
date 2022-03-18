@@ -15,6 +15,8 @@ class ClienteController extends Controller
     public function index()
     {
         $clients = Client::get();
+        //dd($clients);
+        //exit;
 
         return view('clients.index', [
             'clients' =>$clients
@@ -28,7 +30,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -39,7 +41,11 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->except('_token');
+
+        Client::create($dados);
+
+        return redirect('/clients');
     }
 
     /**

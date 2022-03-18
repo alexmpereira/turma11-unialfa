@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -13,8 +14,15 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view("welcome");
-        //
+        //TODO Buscar clientes no banco
+        $clients = Client::get();
+
+        //TODO Verificar se veio vazio
+
+        //TODO Validar se CNPJ_CPF é válido
+        return view('clients.index', [
+            'clients'=> $clients
+        ]);
     }
 
     /**
@@ -24,7 +32,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -35,7 +43,11 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $dados = $request->except('_token');
+        Client::create($dados);
+        //exit;
+        return redirect('clients');
     }
 
     /**
@@ -44,9 +56,14 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        //TODO buscar um unico cliente
+        $client = Client::find($id);
+
+        return view('clients.show', [
+            'client' =>$client
+        ]);
     }
 
     /**
