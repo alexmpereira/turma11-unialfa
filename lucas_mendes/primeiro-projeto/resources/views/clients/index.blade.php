@@ -22,8 +22,13 @@
                 </a>
             </td>
           <td>{{ $client->endereco }}</td>
+          <td>{{ $client->observacao }}</td>
         </tr>
       @endforeach
     </tbody>
   </table>
+
+  <a class="btn btn-success" href="{{ route('clients.create') }}">
+    Novo cliente  
+  </a>
 @endsection
