@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -37,8 +37,11 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $dados = $request->except('_token');
+        Client::create($dados);
+
+        return redirect('/clients');
     }
 
     /**
@@ -49,10 +52,10 @@ class ClientController extends Controller
      */
     public function show(int $id)
     {
-        $clients = Client::find($id);
+        $client = Client::find($id);
 
         return view('clients.show', [
-            'client' => $clients
+            'client' => $client
         ]);
     }
 
