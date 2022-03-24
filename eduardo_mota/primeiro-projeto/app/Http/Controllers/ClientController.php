@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -13,7 +14,11 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('clients');
+        $clients = Client::get();
+
+        return view('clients.index', [
+            'clients' => $clients
+        ]);
     }
 
     /**
@@ -23,7 +28,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -34,7 +39,10 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->except('_token');
+        Client::create($dados);
+        //exit;
+        return redirect('clients');
     }
 
     /**
@@ -43,9 +51,14 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        //TODO buscar um único cliente
+        $client = Client::find($id);
+
+        return view('clients.show', [
+            'client' => $client
+        ]);
     }
 
     /**
@@ -54,9 +67,15 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit(int $id)
+    {   
+        //TODO consultar o cliente
+        $client = Client::find($id);
+        //TODO vamos enviar a pessoa para uma view
+        return view('clients.edit',[
+            'client'=> $client
+        ]);
+
     }
 
     /**
@@ -68,7 +87,13 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+        $client->update([
+            'nome' => $request->nome,
+            'endereco' => $request->endereco,
+            'observacao' => $request->observacao
+        ]);
+        return redirect('/clients');
     }
 
     /**
