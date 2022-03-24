@@ -22,7 +22,7 @@
                         </a></td>
                     <td>{{ $client->endereco }}</td>
                     <td>
-                        <a href=""><button type="button" class="btn btn-warning">Editar</button></a>
+                        <a href="{{ route('clients.edit', $client) }}"><button type="button" class="btn btn-warning">Editar</button></a>
                         <a href=""><button type="button" class="btn btn-danger">Excluir</button></a>
                     </td>
                 </tr>

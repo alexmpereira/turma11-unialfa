@@ -69,7 +69,13 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        //TODO consultar o cliente
+        $client = Client::find($id);
+        //TODO vamos enviar a pessoa para uma view
+        return view('clients.edit', [
+            'client' => $client
+        ]);
+        
     }
 
     /**
@@ -81,7 +87,14 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+        
+        $client->update([
+            'nome' => $request->nome,
+            'endereco' => $request->endereco,
+            'observacao' => $request->observacao
+        ]);
+        return redirect('/clients');
     }
 
     /**
