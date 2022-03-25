@@ -8,17 +8,17 @@
         @method('PUT')
         <div class="md-3">
             <label for="nome" class="form-label">Nome</label>
-            <input value="{{ $client->nome }}" type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome">
+            <input value="{{ $client->nome }}" type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
         </div>
 
         <div class="md-3">
             <label for="endereco" class="form-label">Endereço</label>
-            <input value="{{ $client->endereco }}" type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o endereço">
+            <input value="{{ $client->endereco }}" type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o endereço" required>
         </div>
 
         <div class="md-3">
             <label for="observacao" class="form-label">Observação</label>
-            <textarea class="form-control" name="observacao" id="observacao" placeholder="Digite a Observação">{{ $client->observacao }}</textarea>
+            <textarea class="form-control" name="observacao" id="observacao" placeholder="Digite a Observação" required>{{ $client->observacao }}</textarea>
         </div>
 
         <button class="btn btn-success">Enviar</button>

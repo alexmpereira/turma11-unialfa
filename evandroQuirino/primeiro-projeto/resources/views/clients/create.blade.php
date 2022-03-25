@@ -7,17 +7,17 @@
     @csrf
         <div class="md-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
         </div>
 
         <div class="md-3">
             <label for="endereco" class="form-label">Endereço</label>
-            <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o endereço">
+            <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o endereço" required>
         </div>
 
         <div class="md-3">
             <label for="observacao" class="form-label">Observação</label>
-            <textarea class="form-control" name="observacao" id="observacao" placeholder="Digite a Observação"></textarea>
+            <textarea class="form-control" name="observacao" id="observacao" placeholder="Digite a Observação" required></textarea>
         </div>
 
         <button class="btn btn-success">Enviar</button>
