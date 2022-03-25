@@ -10,7 +10,7 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return view
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class ClientController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
@@ -34,7 +34,7 @@ class ClientController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function store(Request $request)
     {
@@ -48,7 +48,7 @@ class ClientController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function show(int $id)
     {
@@ -59,36 +59,53 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostrar determinado cliente
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function edit($id)
     {
-        //
+
+        $client = Client::find($id);
+
+        //TODO vamos enviar a pessoa para uma view
+        return view('clients.edit', [
+            'client' => $client
+        ]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Realiza a edicao de dados do cliente
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return redirect
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+        $client->update([
+            'nome' => $request->nome,
+            'endereco' => $request->endereco,
+            'observacao' => $request->observacao,
+        ]);
+
+        return redirect('/clients');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove um cliente
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return redirect
      */
     public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+
+        $client->delete();
+
+        return redirect('/clients');
     }
 }
