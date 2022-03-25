@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index()
     {
@@ -24,7 +26,7 @@ class ClientController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
@@ -32,10 +34,11 @@ class ClientController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     *Cria novo cliente
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
+     *
      */
     public function store(Request $request)
     {
@@ -47,10 +50,10 @@ class ClientController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * mostra um cliente especifico
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function show(int $id)
     {
@@ -63,10 +66,10 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mosra o formulario de editar um determinado cliente
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function edit(int $id)
     {
@@ -79,11 +82,10 @@ class ClientController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Realiza a edicao dos dados de um cliente 
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -100,10 +102,10 @@ class ClientController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove um cliente
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy($id)
     {
