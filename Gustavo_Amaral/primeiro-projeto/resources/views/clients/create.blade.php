@@ -8,19 +8,19 @@
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" class="form-control" name="nome" id="nome"
-                placeholder="Digite um nome">
+                placeholder="Digite um nome" required>
             </div>
 
             <div class="mb-3">
                 <label for="endereco" class="form-label">Endereço</label>
                 <input type="text" class="form-control" name="endereco" id="endereco"
-                placeholder="Digite um endereço">
+                placeholder="Digite um endereço" required>
             </div>
 
             <div class="mb-3">
                 <label for="observacao" class="form-label">Observação</label>
                 <input type="text" class="form-control" name="observacao" id="observacao"
-                placeholder="Digite uma Observação">
+                placeholder="Digite uma Observação" required>
             </div>
 
             <button class="btn btn-success">Enviar</button>
