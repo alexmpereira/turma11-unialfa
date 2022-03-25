@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nome', 100);
             $table->string('endereco');
             $table->string('observacao');
+            $table->string('acao');
             $table->timestamps();
         });
     }
