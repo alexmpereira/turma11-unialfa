@@ -13,7 +13,7 @@
         <p><strong>ID</strong>: {{$client->id}}</p>
         <p><strong>Nome</strong>: {{$client->nome}}</p>
         <p><strong>Endereco</strong>: {{$client->endereco}}</p>
-        <p><strong>Observacao</strong>: {{$client->Observacao}}</p>
+        <p><strong>Observacao</strong>: {{$client->observacao}}</p>
         <br>
         <a class='btn btn-success' href="{{route('clients.index')}}">
             Voltar para a lista de clientes
