@@ -22,7 +22,23 @@
                             </a>
                         </td>
                         <td>{{ $client->endereco }}</td>
-                        <td></td>
+                        <td>
+                            <a class="btn btn-primary" href="{{route('clients.edit', $client)}}">
+                                Editar
+                            </a> 
+                            
+                            <form action="{{route('clients.destroy', $client)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button 
+                                    class="btn btn-danger" 
+                                    type="submit"
+                                    onclick="return confirm('Tem certeza que deseja apagar?')"
+                                >
+                                    Apagar
+                                </button>
+                            </form>    
+                        </td>
                 </tr>
                 @endforeach
             </tbody>
