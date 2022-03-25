@@ -1,12 +1,12 @@
 @extends('app')
-@section('title', 'Novo Cliente')
+@section('title', 'Editar Cliente')
 
-@section('content') 
+@section('content')
     <div class="card mt-5">
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col col-10">
-                    <h1>Novo Cliente</h1>
+                    <h1>Editar Cliente</h1>
                 </div>
                 <div class="col col-2">
                     <a href="{{ route('clients.index') }}">
@@ -17,26 +17,27 @@
                             Voltar
                         </button>
                     </a>
-                </div>  
+                </div>    
             </div>
         </div>
 
         <div class="card-body">
-            <form action="{{ route('clients.store') }}" method="POST">
+            <form action="{{ route('clients.update', $client) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
+                    <input value="{{ $client->nome }}" type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
                 </div>
         
                 <div class="mb-3">
                     <label for="endereco" class="form-label">Endereço</label>
-                    <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o Endereço" required>
+                    <input value="{{ $client->endereco }}" type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o Endereço" required>
                 </div>
         
                 <div class="mb-3">
                     <label for="observacao" class="form-label">Observação</label>
-                    <textarea class="form-control" name="observacao" id="observacao" placeholder="Digite a Observação" required></textarea>
+                    <textarea class="form-control" name="observacao" id="observacao" placeholder="Digite a Observação" required>{{ $client->observacao }}</textarea>
                 </div>
         
                 <button class="btn btn-success">
