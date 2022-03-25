@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  app:
+    image: laravel-www
+    container_name: second_project
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html
+
+  db:
+    image: mysql:5.7
+    container_name: second_project_db
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: 'second_project'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: ""
+    volumes:
+      - ./db:/var/lib/mysql
