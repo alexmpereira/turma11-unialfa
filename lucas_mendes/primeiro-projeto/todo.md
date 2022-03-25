@@ -1,1 +1,0 @@
-//TODO vou clonar o projeto, e fazer a copia do .env e rodar o composer install
