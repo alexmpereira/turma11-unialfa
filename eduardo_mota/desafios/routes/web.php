@@ -26,7 +26,7 @@ Route::get('/estudante/novo', [EstudanteController::class , 'new'])->name('estud
 
 Route::put('/estudante/{id}', [EstudanteController::class, 'update'])->name('estudante.update');
 Route::post('/estudante', [EstudanteController::class, 'create'])->name('estudante.create');
-Route::delete('/estudante/{id}', [EstudanteController::class], 'delete')->name('estudante.destroy');
+Route::delete('/estudante/{id}', [EstudanteController::class, 'delete'])->name('estudante.destroy');
 
 
 // Route::delete('/clients/{id}', [ClientController::class, 'destroy'])->name('clients.destroy');

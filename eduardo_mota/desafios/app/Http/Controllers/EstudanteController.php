@@ -20,7 +20,7 @@ class EstudanteController extends Controller
     //redirect view for create a new studant
     public function new()
     {
-        return view('estudante.create');
+        return view('estudante/create.blade.php');
     }
 
     //create function
