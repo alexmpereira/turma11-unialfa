@@ -1,3 +1,7 @@
 body {
     background-color: #ddd !important;
 }
+
+.teste h1{
+    color: red;
+}
