@@ -7,12 +7,12 @@
     @csrf
       <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome">
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
       </div>
 
       <div class="mb-3">
         <label for="endereco" class="form-label">Endereço</label>
-        <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o Endereço">
+        <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o Endereço" required>
       </div>
 
       <div class="mb-3">

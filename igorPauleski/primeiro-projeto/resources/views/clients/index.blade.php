@@ -21,7 +21,16 @@
                         </a>
                     </td>
                     <td> {{ $client->endereco }} </td>
-                    <td>@mdo</td>
+                    <td id="btnAcao">
+                        <a class="btn btn-primary" href="{{route('clients.edit', $client)}}">Editar</a>
+                        <form action="{{route('clients.destroy', $client)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('Tem certeza que deseja apagar?')">
+                                Deletar
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -9,6 +9,7 @@
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Endereco</th>
+        <th scope="col">observacao</th>
         <th scope="col">Ações</th>
       </tr>
     </thead>
@@ -23,6 +24,18 @@
             </td>
           <td>{{ $client->endereco }}</td>
           <td>{{ $client->observacao }}</td>
+          <td>
+            <a class="btn btn-primary" href="{{route('clients.edit', $client)}}">
+              Editar
+            </a>
+            <form action="{{route('clients.destroy', $client)}}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger" type="submit" onclick="return confirm('Tem certeza que deseja apagar?')">
+                Deletar
+              </button>
+            </form>
+          </td>
         </tr>
       @endforeach
     </tbody>
