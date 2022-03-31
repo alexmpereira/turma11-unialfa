@@ -17,6 +17,13 @@ use App\Http\Controllers\EstudanteController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*ABRIR AS VIEWS*/ 
 Route::get('/estudantes', [EstudanteController::class, 'index'])->name('estudantes.index');
-Route::get('/estudantes{id}', [EstudanteController::class, 'show'])->name('estudantes.show');
+Route::get('/estudantes/create', [EstudanteController::class, 'create'])->name('estudantes.create');
+Route::get('/estudantes/{id}', [EstudanteController::class, 'show'])->name('estudantes.show');
+Route::get('/estudantes/{id}/edit', [EstudanteController::class, 'edit'])->name('estudantes.edit');
+
+/*FUNÇÕES DE GERENCIAMENTO*/
+Route::post('/estudantes', [EstudanteController::class, 'store'])->name('estudantes.store');
+Route::put('/estudantes/{id}', [EstudanteController::class, 'update'])->name('estudantes.update');
+Route::delete('/estudantes/{id}', [EstudanteController::class, 'destroy'])->name('estudantes.destroy');
