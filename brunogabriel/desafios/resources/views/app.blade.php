@@ -14,7 +14,7 @@
   <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('clients.index') }}">UniAlfa</a>
+            <a class="navbar-brand" href="{{ route('students.index') }}">Desafio</a>
         </div>
     </nav>
 
