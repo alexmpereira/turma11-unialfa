@@ -3,7 +3,7 @@
 @section('content')
 
         <h1>Novo Estudante</h1>
-        <form action="{{ route('estudante.create')}}" method="POST">
+        <form action="{{ route('estudante.store')}}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome:</label>
@@ -21,3 +21,4 @@
             <button class="btn btn-success">Enviar</button>
         </form>
 @endsection
+

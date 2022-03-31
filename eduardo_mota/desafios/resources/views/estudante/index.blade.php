@@ -42,5 +42,5 @@
         </tbody>
     </table>
 
-    <a class="btn btn-success" href="{{ route('estudante.new')}}">Novo Aluno</a>
+    <a class="btn btn-success" href="{{ route('estudante.create')}}">Novo Aluno</a>
 @endsection
