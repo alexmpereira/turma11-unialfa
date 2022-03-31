@@ -73,7 +73,7 @@ class ClienteController extends Controller
     public function edit(int $id)
     {
         //TODO consultar o cliente
-        $client = client::find($id);
+        $client = Client::find($id);
         //TODO vamos enviar a pessoa para um aview
         return view('clients.edit', [
             'client' => $client
