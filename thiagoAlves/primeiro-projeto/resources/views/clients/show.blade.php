@@ -2,8 +2,7 @@
 @section('title', 'Detalhes do Cliente')
 @section('content')
 
-
-       <div class="card">
+       <div class="card shadow-lg m-5 rounded">
            <div class="card-header">
                Detalhes do Cliente {{$client->nome}}
             </div>
