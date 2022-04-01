@@ -39,7 +39,10 @@ class EstudanteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->except('_token');
+        Estudante::create($dados);
+
+        return redirect( '/estudantes' );
     }
 
     /**
@@ -50,7 +53,11 @@ class EstudanteController extends Controller
      */
     public function show($id)
     {
-        //
+        $estudante = Estudante::find($id);
+       
+       return view('estudantes.show', [
+            'estudante' => $estudante
+        ]);
     }
 
     /**
@@ -61,7 +68,12 @@ class EstudanteController extends Controller
      */
     public function edit($id)
     {
-        //
+       
+        $estudante = Estudante::find($id);
+
+        return view('estudantes.edit', [
+           'estudante' => $estudante 
+        ]);
     }
 
     /**
@@ -73,8 +85,16 @@ class EstudanteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudante = Estudante::find($id);
+
+        $estudante->update([
+            'nome' => $request->nome,
+            'cpf' => $request->cpf,
+            'nascimento' => $request->nascimento
+        ]);
+        return redirect('/estudantes');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -84,6 +104,8 @@ class EstudanteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estudante = Estudante::find($id);
+        $estudante->delete();
+        return redirect('/estudantes');
     }
 }

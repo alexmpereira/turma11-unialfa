@@ -3,7 +3,7 @@
 
 @section('content')
     <h1>Novo Estudante</h1>
-    <form action="" method="POST">
+    <form action="{{ route('estudantes.store') }}" method="POST">
     @csrf
         <div class="md-3">
             <label for="nome" class="form-label">Nome</label>
@@ -17,7 +17,7 @@
 
         <div class="md-3">
             <label for="nascimento" class="form-label">Data de Nascimento</label>
-            <input class="form-control" name="nascimento" id="nascimento" placeholder="Data de nascimento"  required>
+            <input class="form-control" name="nascimento" id="nascimento" placeholder="1990-12-15"  required>
         </div>
 
         <button class="btn btn-success">Enviar</button>

@@ -15,21 +15,30 @@
             @foreach($estudantes as $estudante)
                 <tr>
                     <td>
-                        {{ $estudante->nome }}
-                    </td>
+                        <a href="{{ route('estudantes.show', $estudante) }}">
+                            {{ $estudante->nome }}
+                        </a></td>
                     <td>
                         {{ $estudante->cpf }}
                     </td>
                     <td>
                         {{ $estudante->nascimento= date("d-m-Y", strtotime($estudante->nascimento));}}
                     </td>
-                    <td >
-                        <button>
-                            editar
-                        </button>
-                        <button >
-                            excluir
-                        </button>
+                    <td style="display: flex">
+                        <a href="{{ route('estudante.edit', $estudante) }}" class="btn btn-warning">
+                            Editar
+                        </a>
+
+                        <form action="{{ route('estudante.destroy', $estudante) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button 
+                            type="submit" 
+                            class="btn btn-danger" 
+                            onclick="return confirm('tem certeza que deseja apagar?')">
+                                Excluir
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -37,3 +46,4 @@
     </table>
     <a class="btn btn-success" href="{{ route('estudantes.create') }}">Novo Estudante</a>
 @endsection
+
