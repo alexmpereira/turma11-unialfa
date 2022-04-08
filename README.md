@@ -32,3 +32,31 @@ para a tabela já criada no desafio anterior
 #### Dica
 - php artisan make:migration create_students_table
 - php artisan make:migration update_students_table **algo a mais aqui**
+
+# Comandos do dia a dia no Laravel
+- Instalando projeto: **composer create-project laravel/laravel nome_projeto*
+- Gerando a key da aplicação: **php artisan key:generate**
+- Criando migrations: **php artisan make:migration create_series_table**
+- Criando models: **php artisan make:model Serie**
+- Subindo o banco: **php artisan migrate**
+- Criando controllers: **php artisan make:controller SeriesController -r**
+
+# Passos para desenvolver o projeto 2
+### Checklist listagem
+- Criar uma controller
+- Configurar a primeira rota de listar
+- Escrever o código dentro do método index, que seja
+capaz de retornar todas as séries
+- Na index, incluir o return e mandar para uma view
+- No diretório resource criar a pasta series/index.blade.php
+
+### checklist cadastro
+- Criar a rota get que retorna a view create
+- Adaptar o método create para retornar a view create.blade.php
+- Criar na views o create.blade.php
+- Criar um formulário com o input nome
+
+- Fazer a rota com o método post, para gravar com o método store
+- Adaptar o formulário para quando clicar no botão salvar no banco
+
+
