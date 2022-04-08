@@ -1,6 +1,7 @@
 @extends('app')
 @section('title', 'Lista de Clientes')
 @section('content')
+    <div class="shadow-lg bg-white p-5 m-5 rounded">
         <h1 class="text-center pb-3">Lista de Clientes</h1>
         <div class="table-responsive bg-light">
        <table class="table table-hover table-bordered">
@@ -32,5 +33,9 @@
             @endforeach
         </tbody>
         </table>
-        </div>
+
+        <a class="btn btn-success" href="{{route('clients.create')}}">
+            <span class="lnr lnr-plus-circle"></span> Novo Cliente
+        </a>
+    </div>
 @endsection

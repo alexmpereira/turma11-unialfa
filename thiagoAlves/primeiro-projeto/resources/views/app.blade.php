@@ -11,14 +11,14 @@
 
     <title>@yield('title')</title>
   </head>
-  <body>
+  <body style="background-color: lightskyblue">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ route('clients.index') }}"><span class="lnr lnr-smile"></span> Unialfa</a>
   </div>
     </nav>
 
-    <div class="container p-5">
+    <div class="container">
         @yield('content')
     </div>
 
