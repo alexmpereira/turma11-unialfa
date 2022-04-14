@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SerieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/serie', [SerieController::class, 'index'])->name('serie.index');
+Route::get('/serie/create', [SerieController::class, 'create'])->name('serie.create');
+
+Route::post('/serie', [SerieController::class, 'store'])->name('serie.store');
