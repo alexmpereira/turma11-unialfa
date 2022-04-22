@@ -15,7 +15,7 @@
     <body>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('estudantes.index')}}">Unialfa</a>
+                <h1 class="navbar-brand" href="{{ route('estudantes.index')}}">Trabalho 2 1°Bimestre</h1>
             </div>
         </nav>
 

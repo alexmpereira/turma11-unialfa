@@ -1,7 +1,7 @@
 @extends('app')
 @section('title', 'Lista de Alunos')
 @section('content')
-    <h1>Lista de Estudantes</h1>
+    <h2>Lista de Estudantes</h2>
     <table class="table">
         <thead>
             <tr>
@@ -24,11 +24,11 @@
                 <td>{{$estudantes->nascimento}}</td>
                 <td>{{$estudantes->sala}}</td>
                 <td>
-                    <a 
-                    class="btn btn-primary"
+                    <a
+                    class="btn btn-warning"
                     href="{{route('estudantes.edit', $estudantes) }}"
                     >
-                        Atualizar
+                        Editar
                     </a>
 
                 </td>
@@ -42,7 +42,7 @@
                         onclick="return confirm('Tem certeza que deseja apagar?')"
                         >
 
-                            Apagar
+                        Apagar
 
                         </button>
                     </form>
