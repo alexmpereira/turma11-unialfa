@@ -2,7 +2,7 @@
 @section('title', 'Novo Estudante')
 @section('content')
 
-        <h1>Novo Cliente</h1>
+        <h1>Novo Estudante</h1>
         <form action="{{ route('estudantes.store')}}" method="POST">
             @csrf
             <div class="mb-3">
