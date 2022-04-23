@@ -26,7 +26,7 @@ class EstudanteController extends Controller
      */
     public function create()
     {
-        //
+        return view('estudantes.create');
     }
 
     /**
@@ -37,7 +37,9 @@ class EstudanteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = $request->except('_token');
+        Estudante::create($dados);
+        return redirect('estudantes');
     }
 
     /**
@@ -48,7 +50,11 @@ class EstudanteController extends Controller
      */
     public function show($id)
     {
-        //
+        $estudantes = Estudante::find($id);
+
+        return view('estudantes.show',[
+            'estudantes'=> $estudantes
+        ]);
     }
 
     /**
@@ -59,7 +65,11 @@ class EstudanteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estudantes = Estudante::find($id);
+
+        return view('estudantes.edit',[
+            'estudantes'=> $estudantes
+        ]);
     }
 
     /**
@@ -71,7 +81,14 @@ class EstudanteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudantes = Estudante::find($id);
+
+        $estudantes->update([
+            'nome' => $request->nome,
+            'cpf' => $request->cpf,
+            'nascimento' => $request->nascimento
+        ]);
+        return redirect('/estudantes');
     }
 
     /**
@@ -82,6 +99,8 @@ class EstudanteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estudantes = Estudante::find($id);
+        $estudantes->delete();
+        return redirect('/estudantes');
     }
 }
