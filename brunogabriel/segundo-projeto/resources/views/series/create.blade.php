@@ -1,10 +1,10 @@
 @extends('layout')
 
 @section('title', 'Nova Série')
-@section('cabecalho', 'Séries')
+@section('cabecalho', 'Nova Série')
 
 @section('conteudo')
-  <h1>Nova Série</h1>
+  <a href="{{route('series.index')}}" class="btn btn-dark mb-2">Voltar</a>
   <form action="{{route('series.store')}}" method="POST">
       @csrf
       <div class="mb-3">
@@ -14,4 +14,4 @@
 
       <button class="btn btn-dark mb-2">Cadastrar</button>
   </form>    
-@endsection       
+@endsection
