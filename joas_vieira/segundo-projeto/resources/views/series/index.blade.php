@@ -9,6 +9,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -18,11 +19,21 @@
                     <td>
                         {{ $serie->nome }}
                     </td>
+                    <td>
+                        <form action="{{ route('series.destroy', $serie) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit"
+                                onclick="return confirm('Are you sure you want to delete?')">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    <a class='btn btn-success' href="{{ route('series.create') }}">New Student</a>
+    <a class='btn btn-success' href="{{ route('series.create') }}">New Serie</a>
 
 @endsection
