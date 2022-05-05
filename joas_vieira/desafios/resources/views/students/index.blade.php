@@ -18,7 +18,7 @@
                 <tr>
                     <th scope="row">{{ $student->id }}</th>
                     <td>
-                            <a href="{{ route('students.show', $student) }}">
+                        <a href="{{ route('students.show', $student) }}">
                             {{ $student->name }}
                         </a>
                     </td>
