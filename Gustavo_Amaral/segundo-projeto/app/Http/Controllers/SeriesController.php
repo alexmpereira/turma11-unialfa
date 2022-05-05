@@ -15,7 +15,7 @@ class SeriesController extends Controller
     public function index()
     {
         $series = Serie::get();
-
+        
         return view('series.index', compact('series'));
     }
 
@@ -37,10 +37,9 @@ class SeriesController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = $request->except('_token');
-        Serie::create($dados);
-
-        return redirect('/series');
+        
+        $serie = Serie::create($request->all());
+        return redirect()->route('series.index');
     }
 
     /**
@@ -51,7 +50,12 @@ class SeriesController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $serie = Serie::find($id);
+
+        return view('series.show', [
+            'serie' => $serie
+        ]);
     }
 
     /**
