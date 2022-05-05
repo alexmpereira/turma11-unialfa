@@ -42,6 +42,6 @@
   </table>
 
   <a class="btn btn-success" href="{{ route('clients.create') }}">
-    Novo cliente  
+    Novo cliente
   </a>
 @endsection
