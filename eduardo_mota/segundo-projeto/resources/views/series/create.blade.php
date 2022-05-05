@@ -8,7 +8,13 @@
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome:</label>
                 <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
+
+                <thead>
+                    <th>Button</th>
+                </thead>
             </div>
+
+            
             
             <button class="btn btn-danger">Salvar</button>
         </form>

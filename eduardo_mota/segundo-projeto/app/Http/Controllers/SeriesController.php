@@ -38,10 +38,9 @@ class SeriesController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = $request->except('_token');
-        Serie::create($dados);
-        //exit;
-        return redirect('series');
+        $serie = Serie::create($request->all());
+        return redirect()->route('series.index');
+
     }
 
     /**
@@ -85,7 +84,9 @@ class SeriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $serie = Serie::find($id);
+        $serie->delete();
+        return redirect()->route('series.index');
     }
 }
