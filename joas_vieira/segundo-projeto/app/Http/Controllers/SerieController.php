@@ -12,11 +12,13 @@ class SerieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $series = Serie::get();
 
-        return view('series.index', ['series' => $series]);
+        $series = Serie::get();
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('series.index', compact('series', 'mensagem'));
     }
 
     /**
@@ -37,8 +39,10 @@ class SerieController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->except('_token');
-        Serie::create($data);
+
+        $serie = Serie::create($request->all());
+
+        $request->session()->flash('mensagem', "Série {$serie->id} criada com sucesso {$serie->nome}");
 
         return redirect('/series');
     }
@@ -83,9 +87,10 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id)
+    public function destroy(int $id, Request $request)
     {
         $serie = Serie::find($id);
+        $request->session()->flash('mensagem', "Série deletada com sucesso");
         $serie->delete();
 
         return redirect('/series');
