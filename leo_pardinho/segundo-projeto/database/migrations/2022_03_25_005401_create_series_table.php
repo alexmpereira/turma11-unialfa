@@ -14,7 +14,7 @@ class CreateSeriesTable extends Migration
     public function up()
     {
         Schema::create('series', function (Blueprint $table) {
-            $table->id();
+            $table->id('');
             $table->string('nome');
             $table->timestamps();
         });

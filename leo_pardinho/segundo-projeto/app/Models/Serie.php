@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Serie extends Model
 {
-    protected $fillable = ['nome'];
+    protected $fillable = ['id','nome'];
     use HasFactory;
 }
