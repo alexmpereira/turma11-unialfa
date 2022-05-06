@@ -83,8 +83,11 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        $serie = Serie::find($id);
+        $serie->delete();
+
+        return redirect('/series');
     }
 }
