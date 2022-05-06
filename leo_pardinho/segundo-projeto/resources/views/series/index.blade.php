@@ -1,6 +1,10 @@
 @extends('app')
 @section('conteudo')
 
+<div class="alert alert-success">
+    {{ $mensagem }}
+</div>
+
 <h1 style="font-family: 'Bebas Neue', cursive; margin-top: 1rem;">LISTA DE SÉRIES</h1>
 <table class="table">
     <thead>
