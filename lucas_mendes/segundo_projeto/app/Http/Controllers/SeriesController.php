@@ -86,6 +86,8 @@ class SeriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $serie = Serie::find($id);
+        $serie->delete();
+        return redirect('/series');
     }
 }

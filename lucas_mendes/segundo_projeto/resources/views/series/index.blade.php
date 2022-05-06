@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Series    
+Series
 @endsection
 
 @section('conteudo')
@@ -11,6 +11,13 @@ Series
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{$serie->nome}}
+                <form action="{{route('series.destroy', $serie)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">
+                        Deletar
+                    </button>
+                </form>
             </li>
         @endforeach
     </ul>
