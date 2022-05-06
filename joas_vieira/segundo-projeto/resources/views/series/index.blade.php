@@ -3,6 +3,11 @@
 @section('title', 'Lista de Series')
 
 @section('content')
+
+    @if (!empty($mensagem))
+        <div class="alert alert-success">{{$mensagem}}</div>
+    @endif
+
     <h1>Lista de Series</h1>
     <table class="table">
         <thead>
