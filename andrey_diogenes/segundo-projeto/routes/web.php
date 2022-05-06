@@ -25,4 +25,5 @@ Route::get('/series/create', [SerieController::class, 'create'])->name('series.c
 
 /*FUNÇÕES DE GERENCIAMENTO*/
 /*Cria a rota*/ /*metodo da rota*/ /*caminho da rota*/ /*Apontamento da controller e do método*/ /*nome da rota*/
-Route::post('series', [SerieController::class, 'store'])->name('series.store');
+Route::post('/series', [SerieController::class, 'store'])->name('series.store');
+Route::delete('/series/{id}', [SerieController::class, 'destroy'])->name('series.destroy');
