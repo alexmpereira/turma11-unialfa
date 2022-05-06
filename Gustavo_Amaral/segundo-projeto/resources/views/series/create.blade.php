@@ -6,6 +6,16 @@
 @endsection
 
 @section('conteudo')
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @@foreach ($errors->all() as error)
+        <li>{{ $error }}</li>
+    </ul>
+</div>
+@endif
+
     <a href="{{ route('series.index') }}" class="btn btn-dark mb-2">Voltar</a>
 
     <form action="{{ route('series.store') }}" method="POST">
