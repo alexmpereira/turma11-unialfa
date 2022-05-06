@@ -5,6 +5,12 @@
 
 @section('conteudo')
 
+@if(!empty($mensagem))
+    <div class="alert alert-success">
+        {{$mensagem}}
+    </div>
+@endif
+
 <table class="table">
     <thead>
         <tr>
@@ -22,6 +28,10 @@
                         {{ $serie->nome }}
                     </td>
                     <td>
+                        <a class="btn btn-primary btn-sm" href="{{route('series.edit', $serie)}}">
+                            Editar
+                        </a> 
+
                         <form action="/series/{{$serie->id }}" method="POST">
                             @csrf
                             @method('DELETE')
