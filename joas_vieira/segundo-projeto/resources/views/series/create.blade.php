@@ -3,6 +3,16 @@
 @section('title', 'Criar Série')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <h1>Criar Série</h1>
     <form action="{{ route('series.store') }}" method="POST">
         @csrf
