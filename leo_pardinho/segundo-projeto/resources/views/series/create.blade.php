@@ -2,6 +2,16 @@
 @section('title', 'Nova Serie')
 @section('conteudo')
         
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
         <h1 style="font-family: 'Bebas Neue', cursive; margin-top: 1rem;">Nova Serie</h1>
         
         <form action="{{ route('serie.store')}}" method="POST">
