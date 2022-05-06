@@ -2,6 +2,11 @@
 @section('title', 'Lista de Series')
 
 @section('content')
+    @if(!empty($mensagem))
+        <div class="alert alert-success mt-5">
+            {{ $mensagem }}
+        </div>
+    @endif
     <h1 class="mt-5">Lista de Series</h1>
     <table class="table table-striped table-bordered rounded-1">
         <thead class="thead-dark table-dark">
@@ -40,7 +45,7 @@
                                 </svg>                              
                             </button>
                         </a>-->
-                        <!-- action="/series/{ { $series->id') }}" -->
+                        <!-- UTILIZADO COM O METODO 2 DO DESTROY action="/series/{ { $series->id') }}" -->
                         <form class="float-start p-1" action="{{ route('series.destroy', $serie) }}" method="POST">
                             @csrf
                             @method('DELETE')
