@@ -13,13 +13,11 @@ class SeriesController extends Controller
      *
      * @return View
      */
-    public function index()
+    public function index(Request $request)
     {
         $series = Serie::get();
-
-            return view('series.index', [
-                'series' => $series
-            ]);
+        $mensagem = $request->session()->get('mensagem');
+        return view('series.index', compact('series', 'mensagem'));
     }
 
     /**
@@ -41,6 +39,8 @@ class SeriesController extends Controller
     public function store(Request $request)
     {
         $serie = Serie::create($request->all());
+        $request->session()->flash(
+            'mensagem', "Série {$serie->id} criada com sucesso {$serie->nome}");
 
         return redirect()->route('series.index');
     }
@@ -85,10 +85,13 @@ class SeriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id)
+    public function destroy(Request $request)
     {
-        Serie::destroy($id);
-
+        Serie::destroy($request->id);
+        $request->session()->flash(
+            'mensagem',
+            "Série removida com sucesso"
+        );
         return redirect()->route('series.index');
     }
 }

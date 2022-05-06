@@ -5,6 +5,13 @@ Séries
 @endsection
 
 @section('conteudo')
+
+@if (!@empty($mensagem))
+<div class="alet alert-success">
+    {{ $mensagem }}
+</div>
+@endif
+
 <a href="{{ route('series.create') }}" class="btn btn-dark mb-2">Adicionar</a>
 
 <ul class="list-group">
@@ -14,7 +21,6 @@ Séries
             <form action="/series/{{ $serie->id}}" method="post">
                 @csrf
                 @method('DELETE')
-
                 <button class="btn btn-danger btn-sm">
                     EXCLUIR
                 </button>
