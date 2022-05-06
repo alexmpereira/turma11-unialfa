@@ -3,6 +3,12 @@
 @section('cabecalho','Netflix')
 @section('content')
     <h1>Series Disponiveis</h1>
+
+    @if(!empty($mensagem))
+    <div class="alert alert-success">
+        {{ $mensagem }}
+    </div>
+    @endif
     
     <table class="table">
         <thead>
