@@ -2,6 +2,17 @@
 @section('cabecalho', 'Nova Série')
 @section('content')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $err)
+                <li>{{ $err }}</li>
+            @endforeach
+        </ul>
+    </div>
+    
+@endif
+
         <h1>Adicionar Série</h1>
         <form action="{{ route('series.store')}}" method="POST">
             @csrf
