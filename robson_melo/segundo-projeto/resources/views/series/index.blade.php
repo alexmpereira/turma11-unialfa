@@ -5,6 +5,11 @@ Séries
 @endsection
 
 @section('conteudo')
+@if(!empty($mensagem))
+<div class="alert alert-success">
+    {{$mensagem}}
+</div>
+@endif
 <a href="{{ route('series.create')}}" class="btn btn-dark mb-2">Adicionar</a>
 <table class="table">
     <thead>
@@ -18,7 +23,7 @@ Séries
         <tr>
             <td>{{$serie->name}}</td>
             <td>
-                <form action="{{route('series.destroy', $serie)}}" method="POST">
+                <form action="/series/{{$serie->id}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <Button class="btn btn-danger" type="submit">Apagar</Button>
