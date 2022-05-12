@@ -6,9 +6,9 @@
 @section('conteudo')
 
 @if(!empty($mensagem))
-    <div class="alert alert-success">
-        {{$mensagem}}
-    </div>
+<div class="alert alert-success">
+    {{$mensagem}}
+</div>
 @endif
 
 <table class="table">
