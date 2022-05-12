@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Serie extends Model
 {
-    protected $fillable = ['id','nome'];
+    protected $fillable = ['nome'];
     use HasFactory;
+
+    //Uma série tem muitas temporadas.
+
+    public function temporadas() {
+        return $this->hasMany(Temporada::class);
+    }
 }
