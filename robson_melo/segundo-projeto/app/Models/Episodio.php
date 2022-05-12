@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Serie extends Model
+class Episodio extends Model
 {
-    protected $fillable = ['name'];
     use HasFactory;
+    //uma episodio pertence a uma temporada
 
-    public function temporadas()
+    public function temporada()
     {
-        return $this->hasMany(Temporada::class);
+        return $this->belongsTo(Temporada::class);
     }
 }
