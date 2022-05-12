@@ -2,6 +2,16 @@
 @section('title', 'Nova Serie')
 
 @section('content') 
+    @if ($errors->any())
+    <div class="alert alert-danger mt-5">
+        <ul class="m-0">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="card mt-5">
         <div class="card-header">
             <div class="row align-items-center">
