@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
 use Illuminate\Http\Request;
 
@@ -12,11 +13,11 @@ class SeriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $series = Serie::get();
-        
-        return view('series.index', compact('series'));
+        $mensagem = $request->session()->get('mensagem');
+        return view('series.index', compact('series', 'mensagem'));
     }
 
     /**
@@ -35,10 +36,10 @@ class SeriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request)
     {
-        
         $serie = Serie::create($request->all());
+        $request->session()->flash('mensagem', "Serie {$serie->id} criada com sucesso {$serie->titulo}");
         return redirect()->route('series.index');
     }
 
@@ -50,12 +51,7 @@ class SeriesController extends Controller
      */
     public function show($id)
     {
-        
-        $serie = Serie::find($id);
-
-        return view('series.show', [
-            'serie' => $serie
-        ]);
+        //
     }
 
     /**
@@ -87,8 +83,10 @@ class SeriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Serie::destroy($request->id);
+        $request->session()->flash('mensagem', "Série removida com sucesso");
+        return redirect()-> route('series.index');
     }
 }
