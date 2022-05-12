@@ -3,6 +3,11 @@
 @section('content')
     <div class="shadow-lg bg-white p-5 m-5 rounded">
         <h1 class="text-center pb-3">Lista de Séries</h1>
+@if (!empty(($mensagem)))
+    <div class="alert alert-success" role="alert">
+        {{$mensagem}}
+    </div>
+@endif
         <div class="table-responsive bg-light">
        <table class="table table-hover table-bordered">
         <thead>
@@ -25,7 +30,11 @@
             <td>{{$serie->nome}}</td>
             <td>
                 <a href="" class="btn btn-sm btn-info"><span class="lnr lnr-cog"></span></a>
-                <a href="" class="btn btn-sm btn-danger"><span class="lnr lnr-trash"></span></a>
+                <form action="/series/{{ $serie->id }}" method="POST" style="display: inline">
+                <button class="btn btn-sm btn-danger"><span class="lnr lnr-trash"></span></button>
+                @csrf
+                @method('DELETE')
+                </form>
             </td>
             </tr>
             @endforeach

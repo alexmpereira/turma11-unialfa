@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SerieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*ABRIR AS VIEWS*/ 
+/*Cria a rota*/ /*metodo da rota*/ /*caminho da rota*/ /*Apontamento da controller e do método*/ /*nome da rota*/
+Route::get('/series', [SerieController::class, 'index'])->name('series.index');
+Route::get('/series/create', [SerieController::class, 'create'])->name('series.create');
+
+/*FUNÇÕES DE GERENCIAMENTO*/
+/*Cria a rota*/ /*metodo da rota*/ /*caminho da rota*/ /*Apontamento da controller e do método*/ /*nome da rota*/
+Route::post('/series', [SerieController::class, 'store'])->name('series.store');
+Route::delete('/series/{id}', [SerieController::class, 'destroy'])->name('series.destroy');

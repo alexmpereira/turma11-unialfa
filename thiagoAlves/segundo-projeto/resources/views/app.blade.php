@@ -24,9 +24,9 @@
     </div>
 
 
-    <footer class="footer bg-light fixed-bottom p-4 shadow-lg">
+    {{-- <footer class="footer bg-light fixed-bottom p-4 shadow-lg">
         <p class="text-center m-2">© Copyright - {{ date("Y") }} Desenvolvido por <a href="https://github.com.bt/thiaalves">thiago.alves</a></p>
-    </footer>
+    </footer> --}}
 
 
 

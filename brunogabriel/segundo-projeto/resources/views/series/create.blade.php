@@ -1,17 +1,29 @@
 @extends('layout')
 
 @section('title', 'Nova Série')
-@section('cabecalho', 'Séries')
+@section('cabecalho', 'Nova Série')
 
 @section('conteudo')
-  <h1>Nova Série</h1>
+
+@if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>   
+      @endforeach
+    </ul>
+  </div>
+@endif
+
+  <a href="{{route('series.index')}}" class="btn btn-dark mb-2">Voltar</a> 
   <form action="{{route('series.store')}}" method="POST">
       @csrf
       <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome da série" required>
+            <input type="text" class="form-control" name="nome" id="nome" 
+            placeholder="Digite o nome da série" required>
       </div>
 
       <button class="btn btn-dark mb-2">Cadastrar</button>
-  </form>    
-@endsection       
+  </form>   
+@endsection
