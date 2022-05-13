@@ -43,7 +43,7 @@ class SeriesController extends Controller
 
         $serie = Serie::create($request->all());
         $request->session()->flash(
-            'mensagem', 
+            'mensagem',
             "{$serie->id} - Série {$serie->nome} criada com sucesso!"
         );
         return redirect()->route('series.index');
@@ -67,7 +67,7 @@ class SeriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         $serie = Serie::find($id);
         return view('series.edit', ['serie' => $serie]);
     }
@@ -99,7 +99,7 @@ class SeriesController extends Controller
     {
         Serie::destroy($request->id);
         $request->session()->flash(
-            'mensagem', 
+            'mensagem',
             "{$request->id} - Série {$request->nome} deletada com sucesso!"
         );
         return redirect()->route('series.index');
