@@ -52,8 +52,24 @@ class SerieController extends Controller
 
         return redirect('/series');
     */
+    /*
         $serie = Serie::create($request->all());
         $request->session()->flash('mensagem', "Série {$serie->id} criada com sucesso, Nome: {$serie->nome}.");
+        return redirect()->route('series.index');
+    */
+    
+        $serie = Serie::create(['nome' => $request->nome]);
+
+        $qtdTemporadas = $request->qtd_temporadas;
+        for ($i = 1; $i <= $qtdTemporadas; $i++) {
+            $temporada = $serie->temporadas()->create(['numero' => $i]);
+        }
+
+        for ($j = 1; $j <= $request->ep_por_temporada; $j++) {
+            $temporada->episodios()->create(['numero' => $j]);
+        }
+        
+        $request->session()->flash('mensagem', "Série {$serie->id} e suas temporadas criadas com sucesso, Nome: {$serie->nome}.");
         return redirect()->route('series.index');
     }
 
@@ -64,9 +80,24 @@ class SerieController extends Controller
      * @param  int  $id
      * @return View
      */
-    public function show($id)
+    public function show(/*Request $request*/int $id)
     {
-        //
+        
+        $serie = Serie::find($id);
+        return view('series.show', [
+            'serie' => $serie
+        ]);
+        
+/*
+        $serie = Serie::find($request->id);
+        return view('series.show', [
+            'serie' => $serie
+        ]);
+*/
+        /*retorna as series*//*
+        $series = Serie::find($request->id);
+
+        return view('series.show');*/
     }
 
     /**
