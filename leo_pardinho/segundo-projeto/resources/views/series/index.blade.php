@@ -2,7 +2,6 @@
 @section('title', 'Series')
 @section('cabecalho','Netflix')
 @section('conteudo')
-    <h1>Series Disponiveis</h1>
 
     @if(!empty($mensagem))
     <div class="alert alert-success">
@@ -14,7 +13,7 @@
         <thead>
             <tr>
                 <th scope="col 10">Nome</th>
-                <th scope="col 10">Actions</th>
+                <th scope="col 10">Ações</th>
             </tr>
         </thead>
 
@@ -22,24 +21,33 @@
             <tr>
             @foreach ($series as $serie)
          
-            <td class="list-group-item d-flex justify-content-between align-items-center">
+            <td class="list-group-item ">
                 {{ $serie->nome }}
             </td>
             <td>
-               
                </form>
                <span class="d-flex"> 
-                    <a href="serie/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm ml-1">
+                    <a href="serie/{{ $serie->id }}/temporadas" class="btn btn-info">
                         Temporadas
                     </a>
+                    <form action="{{ route('serie.destroy', $serie) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                            <button class="btn btn-dark" style="margin-left: 1rem;"
+                            type="submit"
+                            onclick="return confirm('Deseja apagar?')"
+                            >
+                            Apagar
+                            </button>
+                </form>
                </span>
-            </td>
-
+               
+         </td>
         </tr>
         @endforeach
         </tbody>
        
     </table>
 
-    <a class="btn btn-dark mb-2" href="{{ route('serie.create') }}">Adicionar Serie</a>
+    <a class="btn btn-danger mb-2" href="{{ route('serie.create') }}">Adicionar</a>
 @endsection
