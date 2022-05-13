@@ -8,16 +8,47 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <title>@yield('title')</title>
+
+    <style>
+        @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+        </style>
+
   </head>
-  <body style="background: rgb(54,203,199);
-  background: linear-gradient(63deg, rgba(54,203,199,1) 14%, rgba(96,222,110,1) 62%, rgba(125,236,49,1) 100%);">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
+  <body style="background: linear-gradient(-45deg, #dde810, #3fe73c, #23a6d5, #2367d5);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{ route('series.index') }}"><img src="https://www.alfaumuarama.edu.br/fau/images/logop.png?v=1" width="50%"></a>
-  </div>
-    </nav>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('series.index') }}">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('series.create') }}">Nova Série</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('series.index') }}">Séries</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
     <div class="container">
         @yield('content')
