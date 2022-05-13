@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('estudantes', function (Blueprint $column) {
-//ao criar com id e timestamps dava erro por duplicidade de campos no banco
+        Schema::table('estudantes', function($column){
+            $column->id();
             $column->integer('sala_id');     
-
+            $column->timestamps();
         });
     }
 
