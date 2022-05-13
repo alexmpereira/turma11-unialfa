@@ -36,6 +36,11 @@
                         Delete
                    </button>
                </form>
+               <span class="d-flex"> 
+                    <a href="series/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm ml-1">
+                        Temporadas
+                    </a>
+               </span>
             </td>
 
         </tr>
