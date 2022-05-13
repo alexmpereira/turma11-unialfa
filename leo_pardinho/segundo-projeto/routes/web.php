@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SerieController;
+use App\Http\Controllers\TemporadasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/serie/create', [SerieController::class, 'create'])->name('serie.cre
 
 Route::post('/serie', [SerieController::class, 'store'])->name('serie.store');
 Route::delete('/serie/{id}',[SerieController::class, 'destroy'])->name('serie.destroy');
+
+Route::get('/serie/{serieId}/temporadas', [TemporadasController::class, 'index'])->name('temporadas.index');
