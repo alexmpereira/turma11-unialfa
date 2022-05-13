@@ -30,19 +30,24 @@
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{route('series.edit', $serie)}}">
                             Editar
-                        </a> 
+                        </a>
 
-                        <form action="/series/{{$serie->id }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button 
-                                class="btn btn-danger btn-sm" 
-                                type="submit"
-                                onclick="return confirm('Tem certeza que deseja apagar?')"
-                            >
-                                Excluir
-                            </button>
-                        </form>  
+                        <span class="d-flex">
+                            <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info btn-sm mr-1">
+                                Temporadas
+                            </a>
+                            <form action="/series/{{$serie->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button
+                                    class="btn btn-danger btn-sm"
+                                    type="submit"
+                                    onclick="return confirm('Tem certeza que deseja apagar?')"
+                                >
+                                    Excluir
+                                </button>
+                            </form>
+                        </span>
                     </td>
                 </th>
             </tr>
