@@ -34,9 +34,19 @@
         <div class="card-body">
             <form action="{{ route('series.store') }}" method="POST">
                 @csrf
-                <div class="mb-3">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
+                <div class="row">
+                    <div class="col col-8 mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
+                    </div>
+                    <div class="col col-2 mb-3">
+                        <label for="qtd_temporadas" class="form-label">Nº de Temporadas</label>
+                        <input type="number" class="form-control" name="qtd_temporadas" id="qtd_temporadas" placeholder="Digite a quantidade de temporadas" required>
+                    </div>
+                    <div class="col col-2 mb-3">
+                        <label for="ep_por_temporada" class="form-label">Nº Ep. por Temp.</label>
+                        <input type="number" class="form-control" name="ep_por_temporada" id="ep_por_temporada" placeholder="Digite a quantidade de episósios por temporada" required>
+                    </div>
                 </div>
         
                 <button type="submit" class="btn btn-success">

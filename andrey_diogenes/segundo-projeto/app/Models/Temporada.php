@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Temporada extends Model
 {
     use HasFactory;
+    protected $fillable =['numero'];
+    public $timestamps = false;
+    
     /**
      * Uma temporada pertence tem muitos episódio
      */
-    public function episosios() {
+    public function episodios() {
         return $this->hasMany(Episodio::class);
     }
     /**
