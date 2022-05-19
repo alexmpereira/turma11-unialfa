@@ -20,21 +20,17 @@
         <tbody>
             @foreach ($series as $serie)
             <tr>
-            <th scope="row">{{$serie->id}}</th>
-            {{-- <td>
-                <a href="{{route('series.show', $serie)}}">
-                {{$serie->nome}}
-                </a>
-            </td> --}}
-            {{-- <td>{{$serie->id}}</td> --}}
+            <th scope="row" width="10%">{{$serie->id}}</th>
             <td>{{$serie->nome}}</td>
-            <td>
-                <a href="" class="btn btn-sm btn-info"><span class="lnr lnr-cog"></span></a>
+            <td width="10%">
+            <span class="d-flex">
+                <a href="/series/{{$serie->id}}/temporadas" class="btn btn-sm btn-primary"><span class="lnr lnr-film-play"></span></a>
                 <form action="/series/{{ $serie->id }}" method="POST" style="display: inline">
-                <button class="btn btn-sm btn-danger"><span class="lnr lnr-trash"></span></button>
-                @csrf
-                @method('DELETE')
-                </form>
+                    <button class="btn btn-sm btn-danger"><span class="lnr lnr-trash"></span></button>
+                    @csrf
+                    @method('DELETE')
+                    </form>
+            </span>
             </td>
             </tr>
             @endforeach

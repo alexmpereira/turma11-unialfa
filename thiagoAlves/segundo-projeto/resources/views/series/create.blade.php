@@ -19,11 +19,21 @@
 
     <form action="{{route('series.store')}}" method="post">
         @csrf
-        <div class="mb-3">
+        <div class="row">
+        <div class="col-12 col-lg-6 mb-3">
             <label for="nome" class="form-label">Nome:</label>
             <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome">
         </div>
-        <button class="btn btn-success"><span class="lnr lnr-check-mark-circle"></span> Enviar</button>
+        <div class="col-12 col-lg-3 mb-3">
+            <label for="qtd_temporadas" class="form-label">N° de Temporadas:</label>
+            <input type="number" class="form-control" name="qtd_temporadas" id="qtd_temporadas" >
+        </div>
+        <div class="col-12 col-lg-3 mb-3">
+            <label for="ep_por_temporada" class="form-label">Episódios por Temporada:</label>
+            <input type="number" class="form-control" name="ep_por_temporada" id="ep_por_temporada">
+        </div>
+        </div>
+        <button class="btn btn-success mt-2"><span class="lnr lnr-check-mark-circle"></span> Enviar</button>
     </form>
     </div>
 
