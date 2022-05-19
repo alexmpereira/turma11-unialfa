@@ -42,6 +42,6 @@
         </tbody>
     </table>
 
-    <a class='btn btn-success' href="{{ route('series.create') }}">New Serie</a>
+    <a class='btn btn-success' href="{{ route('series.create') }}">Nova Serie</a>
 
 @endsection
