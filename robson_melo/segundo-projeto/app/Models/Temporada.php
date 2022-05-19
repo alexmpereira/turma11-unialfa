@@ -9,6 +9,9 @@ class Temporada extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['numero'];
+    public $timestamps = false;
+
     //temporada tem muitos episodios
 
     public function episodios()

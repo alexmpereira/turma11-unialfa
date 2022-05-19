@@ -21,13 +21,18 @@ Séries
     <tbody>
         @foreach($series as $serie)
         <tr>
-            <td>{{$serie->name}}</td>
+            <td>
+                {{$serie->name}}
+                <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info btn-sm mr-1">Temporadas</a>
+            </td>
+
             <td>
                 <form action="/series/{{$serie->id}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <Button class="btn btn-danger" type="submit">Apagar</Button>
                 </form>
+
             </td>
         <tr>
 
