@@ -36,6 +36,6 @@
           </div>
       </div>
 
-      <button class="btn btn-dark mb-2">Cadastrar</button>
+      <button class="btn btn-dark mt-3">Cadastrar</button>
   </form>
 @endsection
