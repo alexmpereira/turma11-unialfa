@@ -9,6 +9,8 @@ class Temporada extends Model
 {
 
     use HasFactory;
+    protected $fillable=['numero'];
+    public $timestamps = false;
 
 
     /**
