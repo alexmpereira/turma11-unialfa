@@ -9,4 +9,9 @@ class Serie extends Model
 {
     protected $fillable = ['nome'];
     use HasFactory;
+
+    public function temporadas()
+    {
+        return $this->hasMany(Temporada::class);
+    }
 }
