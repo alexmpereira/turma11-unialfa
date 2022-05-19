@@ -21,11 +21,12 @@
             <tr>
             @foreach ($series as $serie)
          
-            <td class="list-group-item ">
+            <td class="list-view ">
                 {{ $serie->nome }}
             </td>
+
             <td>
-               </form>
+            <form>
                <span class="d-flex"> 
                     <a href="serie/{{ $serie->id }}/temporadas" class="btn btn-info">
                         Temporadas
