@@ -28,13 +28,12 @@
                         {{ $serie->nome }}
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="{{route('series.edit', $serie)}}">
-                            Editar
-                        </a>
-
                         <span class="d-flex">
                             <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info btn-sm mr-1">
                                 Temporadas
+                            </a>
+                            <a class="btn btn-primary btn-sm" href="{{route('series.edit', $serie)}}">
+                                Editar
                             </a>
                             <form action="/series/{{$serie->id }}" method="POST">
                                 @csrf
