@@ -39,8 +39,18 @@ class SerieController extends Controller
      */
     public function store(SeriesFormRequest $request)
     {
-        $serie = Serie::create($request->all());
-        $request->session()->flash('mensagem', "Série {$serie->nome} criada com sucesso {$serie->id}");
+        $serie = Serie::create(['nome' => $request->nome]);
+
+        $qtdTemporadas = $request->qtd_temporadas;
+        for($i = 1; $i <= $qtdTemporadas; $i++) {
+            $temporada = $serie->temporadas()->create(['numero' => $i]);
+
+            for ($j = 1; $j <= $request->ep_por_temporada; $j++) {
+                $temporada->episodios()->create(['numero' => $j]);
+            }
+        }
+
+        $request->session()->flash('mensagem', "Série {$serie->nome} e suas temporadas e episodios criada com sucesso {$serie->id}");
         return redirect()->route('serie.index');
     }
 
