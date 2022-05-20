@@ -45,7 +45,7 @@
                 <div class="input-group w-50" hidden id="nome-serie-{{ $serie->id }}">
                     <input type="text" class="form-control"  id="input-nome-serie-{{ $serie->id }}" value="{{ $serie->nome }}">
                     <div class="input-group-append">
-                        <button class="btn btn-warning" onclick="editarSerie{{ $serie->id }}">
+                        <button class="btn btn-warning" onclick="editarSerie({{ $serie->id }})">
                             Save
                         </button>
                         @csrf
@@ -81,7 +81,7 @@
 
         function editarSerie(serieId){
             let formData = new FormData();
-            const nome = document.querySelector(`#nome-serie-${serieId}`).value;
+            const nome = document.querySelector(`#nome-serie-${serieId} > input` ).value;
             const token = document.querySelector(`input[name="_token"]`).value;
             formData.append('nome', nome);
             formData.append('_token', token);
