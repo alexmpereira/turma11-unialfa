@@ -22,7 +22,7 @@
                 <tr>
                     <th scope="row">{{ $serie->id }}</th>
                     <td>
-                       <span id="nome-serie={{$serie->id}}"> {{ $serie->nome }}</span>
+                       <span id="list-nome-serie-{{$serie->id}}"> {{ $serie->nome }}</span>
                     </td>
                     <td>
                         <span class="d-flex">
@@ -38,7 +38,7 @@
                                 </button>
                             </form>
 
-                            <div class="input-group w-50" hidden id="nome-serie={{$serie->id}}">
+                            <div class="input-group w-50" hidden id="nome-serie-{{$serie->id}}">
                             <input type="text" class="form-control" value="{{ $serie->nome }}">
                             <div class="input-group-append">
                                 <button 
