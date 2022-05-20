@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
+use App\Services\CriarSerie;
+use App\Services\DeletarSerie;
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
@@ -12,12 +15,11 @@ class SeriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $series = Serie::get();
-        return view('series.index', [
-            'series' => $series
-        ]);
+        $mensagem = $request->session()->get('mensagem');
+        return view('series.index', compact('series', 'mensagem'));
     }
 
     /**
@@ -36,12 +38,22 @@ class SeriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request, CriarSerie $criarSerie)
     {
-        $dados = $request->except('_token');
-        Serie::create($dados);
+        /* $dados = $request->except('_token');
+        Serie::create($dados); */
 
-        return redirect('/series');
+        $serie = $criarSerie->save(
+            $request->nome,
+            $request->qtd_temporadas,
+            $request->ep_por_temporada
+        );
+
+        $request->session()->flash(
+            'mensagem',
+            "Série {$serie->id} e suas temporadas e episodios criados com sucesso!"
+        );
+        return redirect()->route('series.index');
     }
 
     /**
@@ -64,10 +76,7 @@ class SeriesController extends Controller
     public function edit($id)
     {
         $serie = Serie::find($id);
-
-        return view('series.edit', [
-            'serie' => $serie
-        ]);
+        return view('series.edit', ['serie' => $serie]);
     }
 
     /**
@@ -79,8 +88,8 @@ class SeriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $serie = Serie::find($id);
-        $serie->update([
+        $series = Serie::find($id);
+        $series->update([
             'nome' => $request->nome,
         ]);
 
@@ -93,8 +102,25 @@ class SeriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, DeletarSerie $deletarSerie)
     {
-        //
+        $deletarSerie->removerSerie(
+            $request->id
+        );
+        $request->session()->flash(
+            'mensagem',
+            "{$request->id} - Série {$request->nome} deletada com sucesso!"
+        );
+        return redirect()->route('series.index');
+    }
+
+    public function editaNome($id, Request $request)
+    {
+        dd($id);
+
+        $serie= Serie::find($id);
+        $novoNome = $request->nome;
+        $serie->nome = $novoNome;
+        $serie->save();
     }
 }
