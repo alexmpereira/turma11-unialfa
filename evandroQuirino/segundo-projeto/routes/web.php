@@ -23,6 +23,8 @@ Route::get('/series', [SerieController::class, 'index'])->name('series.index');
 Route::get('/series/create', [SerieController::class, 'create'])->name('series.create');
 Route::get('/series/{serieID}/temporadas', [TemporadasController::class, 'index'])->name('temporadas.index');
 
+
+Route::post('/series/{id}/editaNome', [SerieController::class, 'editaNome'])->name('series.editaNome');
 Route::post('/series', [SerieController::class, 'store'])->name('series.store');
 Route::delete('/series/{id}', [SerieController::class, 'destroy'])->name('series.destroy');
 

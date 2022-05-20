@@ -107,4 +107,12 @@ class SerieController extends Controller
 
         return redirect('/series');
     }
+
+    public function editaNome( int $id, Request $request )
+    {
+        $serie = Serie::find($id);
+        $novoNome = $request->nome;
+        $serie->nome = $novoNome;
+        $serie->save();
+    }
 }
