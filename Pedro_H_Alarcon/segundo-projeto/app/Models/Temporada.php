@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,5 +25,12 @@ class Temporada extends Model
     public function serie()
     {
         return $this->belongsTo(Serie::class);
+    }
+
+    public function getEpisodiosAssistidos(): Collection
+    {
+        return $this->episodios->filter(function ($episodio) {
+            return $episodio->assistido;
+        });
     }
 }
