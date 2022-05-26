@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesFormRequest;
+use App\Models\Episodio;
 use App\Models\Serie;
+use App\Models\Temporada;
 use App\Services\CriarSerie;
+use App\Services\DeletarSerie;
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
@@ -96,11 +99,20 @@ class SeriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request)
+    public function destroy($id, Request $request, DeletarSerie $deletarSerie)
     {   
-        $serie = Serie::find($id);
-        $serie->delete();
-        $request->session()->flash("mensagem", "Serie removida");
+       $nomeSerie =  $deletarSerie->removerSerie($id);
+       
+        
+        $request->session()->flash("mensagem", "Serie $nomeSerie removida");
         return redirect()->route('series.index');
+    }
+
+    public function editaNome($id, Request $request)
+    {
+        $serie = Serie::find($id);
+        $novoNome = $request->nome;
+        $serie->nome = $novoNome;
+        $serie->save();
     }
 }
