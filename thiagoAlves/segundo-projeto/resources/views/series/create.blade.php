@@ -2,7 +2,7 @@
 @section('title', 'Nova Série')
 @section('content')
 
-    <div class="shadow-lg bg-white p-5 m-5 rounded">
+    <div class="shadow-lg bg-dark text-white p-5 m-5 rounded">
     <h1>Nova Série</h1>
 
 @if($errors->any())

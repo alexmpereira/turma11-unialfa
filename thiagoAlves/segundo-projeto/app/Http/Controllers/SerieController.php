@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
 use Illuminate\Http\Request;
+use App\Services\CriarSeries;
+use App\Services\DeletarSeries;
 
 
 class SerieController extends Controller
@@ -37,26 +39,15 @@ class SerieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SeriesFormRequest $request)
+    public function store(SeriesFormRequest $request, CriarSeries $criarSerie)
     {
+
         // $dados = $request->except('_token');
         // Serie::create($dados);
         // return redirect('/series');
-        $serie = Serie::create([
-            'nome' => $request->nome
-        ]);
-        $qtdTemporadas = $request->qtd_temporadas;
-        for ($i=1; $i <= $qtdTemporadas; $i++) {
-            $temporada = $serie->temporadas()->create([
-                'numero' => $i
-            ]);
-            for ($j=1; $j <= $request->ep_por_temporada; $j++) {
-                $temporada->episodios()->create([
-                    'numero' => $j+1
-                ]);
-        }
+        $serie = $criarSerie->save($request->nome, $request->qtd_temporadas, $request->ep_por_temporada);
+        // $qtdTemporadas = $request->qtd_temporadas;
 
-        }
 
         $request->session()->flash('mensagem', "Serie '{$serie->nome}' e suas temporadas com episódios criada com sucesso!");
         return redirect()->route('series.index');
@@ -104,10 +95,23 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, DeletarSeries $removerSerie)
     {
-        Serie::destroy($request->id);
-        $request->session()->flash('mensagem', "Serie excluída com sucesso!");
+        $nomeSerie =$removerSerie->removerSerie($request->id);
+
+        $request->session()->flash('mensagem', "Serie $nomeSerie excluída com sucesso!");
         return redirect()->route('series.index');
     }
+
+    public function editaNome(Request $request)
+    {
+        $serie = Serie::find($request->id);
+        $nomeAntigo = $serie->nome;
+        $serie->nome = $request->nome;
+        $serie->save();
+
+        $request->session()->flash('mensagem', "Serie $nomeAntigo alterada para $serie->nome!");
+        return redirect()->route('series.index');
+    }
+
 }
