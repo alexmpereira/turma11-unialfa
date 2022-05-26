@@ -5,6 +5,10 @@
 @endsection
 
 @section('conteudo')
+    @if (!empty($mensagem))
+        <div class="alert alert-success"> {{ $mensagem }}</div>
+    @endempty
+
     <form action="/temporada/{{ $temporadaId }}/episodios/assistir" method="POST">
         @csrf
         <ul class="list-group">
@@ -13,8 +17,9 @@
                 Episodio {{ $episodio->numero }}
                 <input 
                 type="checkbox"
-                name="episodio[{{ $episodio->id }}][assistido]">
-                {{ $episodio->assistido ? 'checked' : ' '}}
+                name="episodio[{{ $episodio->id }}][assistido]"
+                {{ $episodio->assistido ? 'checked' : ' '}}>
+                
             </li>
         @endforeach
         </ul>
