@@ -21,6 +21,7 @@ class CriarSerie
         return $serie;
     }
 
+
     public function criaTemporadas(
         int $qtdTemporadas,
         int $epPorTemporada,
