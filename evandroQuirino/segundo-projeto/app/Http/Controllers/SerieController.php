@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
 use App\Services\CriarSerie;
+use App\Services\DeletarSerie;
 use Illuminate\Http\Request;
 
 class SerieController extends Controller
@@ -48,7 +49,10 @@ class SerieController extends Controller
             $request->ep_por_temporada
         );
 
-        $request->session()->flash('mensagem', "Série {$serie->id} e suas temporadas e episodios criados com sucesso {$serie->nome}");
+        $request->session()->flash(
+            'mensagem', 
+            "Série {$serie->id} e suas temporadas e episodios criados com sucesso {$serie->nome}"
+        );
 
         return redirect('/series');
     }
@@ -93,12 +97,22 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $id, Request $request)
+    public function destroy(int $id, Request $request, DeletarSerie $removedorSerie)
     {
-        $serie = Serie::find($id);
-        $request->session()->flash('mensagem', "Série deletada com sucesso");
-        $serie->delete();
+        $nomeSerie = $removedorSerie->removerSerie($request->id);
+        $request->session()->flash(
+            'mensagem', 
+            "Série $nomeSerie deletada com sucesso"
+        );
 
         return redirect('/series');
+    }
+
+    public function editaNome( int $id, Request $request )
+    {
+        $serie = Serie::find($id);
+        $novoNome = $request->nome;
+        $serie->nome = $novoNome;
+        $serie->save();
     }
 }
