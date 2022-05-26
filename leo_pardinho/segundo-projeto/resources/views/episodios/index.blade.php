@@ -23,6 +23,6 @@
             </li>
         @endforeach
         </ul>
-        <button class="btn btn-primary mt-2">Salvar</button>
+        <button class="btn btn-success mt-2">Salvar</button>
     </form>
 @endsection

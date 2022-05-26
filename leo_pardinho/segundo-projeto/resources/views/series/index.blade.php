@@ -2,7 +2,7 @@
 @section('title', 'Series')
 @section('cabecalho','Netflix')
 @section('conteudo')
-    <h1>Disponible series</h1>
+    <h1>Séries Disponíveis</h1>
 
     @if(!empty($mensagem))
     <div class="alert alert-success">
@@ -13,8 +13,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col 10">Name</th>
-                <th scope="col 10">Actions</th>
+                <th scope="col 10">Nome</th>
+                <th scope="col 10">Ações</th>
             </tr>
         </thead>
 
@@ -22,7 +22,7 @@
             <tr>
             @foreach ($series as $serie)
          
-                <td class="list-group-item d-flex justify-content-between align-items-center">
+                <td class="list-group-item d-flex justify-content-between align-items-center mt-5">
                     {{ $serie->nome }}
                 </td>
                 <td>
@@ -31,30 +31,30 @@
                         @method('DELETE')
                     <button class="btn btn-danger"
                             type="submit"
-                            onclick="return confirm('you sure')"
+                            onclick="return confirm('Deseja realmente deletar esta série?')"
                     >
-                            Delete
+                            Excluir
                     </button>
                 </form>
                 <span class="d-flex"> 
-                        <a href="serie/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm ml-1">
-                            Season
+                        <a href="serie/{{ $serie->id }}/temporadas" class="btn btn-dark mt-1">
+                            Temporadas
                         </a>
                 </span>
 
                 <div class="input-group w-50" hidden id="nome-serie-{{ $serie->id }}">
                     <input type="text" class="form-control"  id="input-nome-serie-{{ $serie->id }}" value="{{ $serie->nome }}">
                     <div class="input-group-append">
-                        <button class="btn btn-warning" onclick="editarSerie({{ $serie->id }})">
-                            Save
+                        <button class="btn btn-success mt-1" onclick="editarSerie({{ $serie->id }})">
+                            Salvar
                         </button>
                         @csrf
                     </div>
                 </div>
 
 
-                <button class="btn btn-info btn-sm mr-1" onclick="toggleInput({{ $serie->id }})">
-                    Edit Name
+                <button class="btn btn-warning mt-1" onclick="toggleInput({{ $serie->id }})">
+                    Editar Nome
                 </button>
                 </td>
 
@@ -64,7 +64,7 @@
        
     </table>
 
-    <a class="btn btn-dark mb-2" href="{{ route('serie.create') }}">Add new serie</a>
+    <a class="btn btn-danger mb-2" href="{{ route('serie.create') }}">Adicionar Série</a>
 
     <script>
         function toggleInput(serieId){
