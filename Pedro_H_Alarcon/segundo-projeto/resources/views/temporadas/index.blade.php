@@ -7,10 +7,14 @@
     </thead>
     <tbody>
         @foreach($temporadas as $temporada)
-        <tr>
-            <td>{{$temporada->numero}}</td>
-
-        <tr>
+        <li class="list-group-item d-flex justify-content-between align-itens">
+            <a href="/temporadas/{{ $temporada->id }}/episodios">
+                Temporada {{ $temporada->numero }} 
+            </a>
+            <span class="badge bg-secundary">
+                {{ $temporada->getEpisodiosAssistidos()->count() }} / {{ $temporada->episodios->count() }}           
+            </span>
+        </li>
 
          @endforeach
 

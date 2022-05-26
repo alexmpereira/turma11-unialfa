@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Serie extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name',];
     use HasFactory;
 
     public function temporadas()
