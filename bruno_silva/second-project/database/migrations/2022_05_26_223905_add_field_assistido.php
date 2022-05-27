@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class AddFieldAssistido extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->timestamps();
+        Schema::table('episodios', function (Blueprint $table) {
+            $table->boolean('assistido' )->nullable();
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('series');
+        Schema::table('episodios', function (Blueprint $table) {
+            //
+        });
     }
 };
