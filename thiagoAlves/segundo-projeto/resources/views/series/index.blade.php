@@ -68,7 +68,7 @@
             </div>
           <div class="modal-footer border-secondary">
             <a class="btn btn-danger" data-bs-dismiss="modal"><i class="lnr lnr-cross-circle"></i> Fechar</a>
-            <button type="submit" class="btn btn-success"><i class="lnr lnr-checkmark-circle"></i> Salvar</button>
+            <button type="submit" id="salvar" class="btn btn-success"><i class="lnr lnr-checkmark-circle"></i> Salvar</button>
           </form>
           </div>
         </div>
@@ -80,8 +80,6 @@
             $('#editarSerie').modal('show');
             $('#id').val(id);
             $('#nome').val(serie);
-
-
         }
 
     </script>

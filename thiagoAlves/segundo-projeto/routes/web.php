@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\TemporadasController;
-
+use App\Http\Controllers\EpisodiosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +27,7 @@ Route::get('/series/{id}', [SerieController::class, 'show'])->name('series.show'
 Route::delete('/series/{id}', [SerieController::class, 'destroy'])->name('series.destroy');
 Route::get('/series/{id}/temporadas/', [TemporadasController::class, 'index'])->name('temporadas.index');
 Route::post('/series/editaNome', [SerieController::class, 'editaNome'])->name('series.editaNome');
+
+Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index'])->name('episodios.index');
+
+Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assistir']);

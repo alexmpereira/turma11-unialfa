@@ -27,8 +27,15 @@
     </div>
     <div class="row text-center">
     @foreach ($temporadas as $temporada)
-        <div class="cardSeries col p-5 m-5 text-center text-light shadow-lg rounded border border-dark ">
+        {{-- <li class="list-group-item d-flex justify-content-beetween align-items">
+            <a href="/temporadas/{{$temporada->id}}/episodios" class="btn btn-sm btn-success m-1">
+                <span class="lnr lnr-film-play"></span>
+                {{$temporada->numero}}
+            </a>
+        </li> --}}
+        <div class="cardSeries col p-5 m-5 text-center text-light shadow-lg rounded border border-dark" onclick="window.location.href='/temporadas/{{$temporada->id}}/episodios'">
             <h3>Temporada {{$temporada->numero}}</h3>
+            <h5>Assistidos {{$temporada->getEpisodiosAssistidos()->count()}} / {{$temporada->episodios->count()}} </h5>
         </div>
     @endforeach
     </div>

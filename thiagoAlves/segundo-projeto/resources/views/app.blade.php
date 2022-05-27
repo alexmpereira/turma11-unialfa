@@ -26,11 +26,11 @@
         </style>
 
   </head>
-  {{-- <body style="background: linear-gradient(-45deg, #dde810, #3fe73c, #23a6d5, #2367d5);
+  <body style="background: linear-gradient(-45deg, #292928, #181918, #0f0303, #000000);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  height: 100vh;"> --}}
-<body style="background-color:#222222">
+  height: 100vh;">
+{{-- <body style="background-color:#222222"> --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="{{ route('series.index') }}"><img src="https://www.alfaumuarama.edu.br/fau/images/logop.png?v=1" width="50%"></a>
 
