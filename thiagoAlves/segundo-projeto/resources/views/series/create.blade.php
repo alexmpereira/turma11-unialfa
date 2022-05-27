@@ -22,15 +22,15 @@
         <div class="row">
         <div class="col-12 col-lg-6 mb-3">
             <label for="nome" class="form-label">Nome:</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome">
+            <input type="text" class="form-control bg-dark text-white border border-secondary" name="nome" id="nome" placeholder="Digite o nome">
         </div>
         <div class="col-12 col-lg-3 mb-3">
             <label for="qtd_temporadas" class="form-label">N° de Temporadas:</label>
-            <input type="number" class="form-control" name="qtd_temporadas" id="qtd_temporadas" >
+            <input type="number" class="form-control bg-dark text-white border border-secondary" name="qtd_temporadas" id="qtd_temporadas" >
         </div>
         <div class="col-12 col-lg-3 mb-3">
             <label for="ep_por_temporada" class="form-label">Episódios por Temporada:</label>
-            <input type="number" class="form-control" name="ep_por_temporada" id="ep_por_temporada">
+            <input type="number" class="form-control bg-dark text-white border border-secondary" name="ep_por_temporada" id="ep_por_temporada">
         </div>
         </div>
         <button class="btn btn-success mt-2"><span class="lnr lnr-check-mark-circle"></span> Enviar</button>
