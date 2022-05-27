@@ -14,6 +14,13 @@
   <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
+            <a class="navbar-brand" href="{{route('series.index')}}">Home</a>
+            @auth
+                <a href="/sair" class="text-danger">Sair</a>
+            @endauth
+            @guest
+             <a href="/entrar">Entrar</a>
+            @endguest
            <h1>@yield('cabecalho')</h1>
         </div>
     </nav>
@@ -23,7 +30,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossorigin="anonymous">
     </script>
 

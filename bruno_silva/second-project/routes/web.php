@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EntrarController;
 use App\Http\Controllers\EpisodiosController;
+use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\TemporadasController;
@@ -15,6 +17,11 @@ use App\Http\Controllers\TemporadasController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/entrar', [EntrarController::class,'index'])->name('login');
+Route::post('/entrar', [EntrarController::class, 'entrar']);
+Route::get('/registrar', [RegistroController::class,'create']);
+Route::post('/registrar', [RegistroController::class, 'store']);
+
 
 Route::get('/series', [SeriesController::class, 'index'])->name('series.index');
 Route::get('/series/{serieId}/temporadas', [TemporadasController::class, 'index'])->name('temporadas.index');
@@ -28,3 +35,8 @@ Route::put('/series/{id}', [SeriesController::class, 'update'])->name('series.up
 
 Route::get('/temporadas/{temporada}/episodios', [EpisodiosController::class, 'index']);
 Route::post('/temporadas/{temporada}/episodios/assistir', [EpisodiosController::class, 'assitido']);
+
+Route::get('/sair', function(){
+    \Illuminate\Support\Facades\Auth::logout();
+return redirect('/entrar');
+});
