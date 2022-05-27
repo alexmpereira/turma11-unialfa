@@ -39,6 +39,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav text-light">
+        @auth
         <li class="nav-item active">
           <a class="nav-link" href="{{ route('series.index') }}">Home </a>
         </li>
@@ -48,6 +49,18 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('series.index') }}">Séries</a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/sair">Sair</a>
+          </li>
+        @endauth
+
+        @guest
+        <li class="nav-item">
+            <a class="nav-link" href="/entrar">Entrar</a>
+        </li>
+        @endguest
+
       </ul>
     </div>
   </nav>

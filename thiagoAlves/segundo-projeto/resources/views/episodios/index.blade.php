@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Lista de Series')
+@section('title', 'Lista de Episódios')
 @section('content')
 
 @if(!empty($mensagem))
@@ -39,6 +39,12 @@
 
         <div class="cardSeries col p-5 m-5 text-center text-light shadow-lg rounded border border-dark" onclick="abrirEpisodio('{{$episodio->id}}')">
             <h3>Episódio {{$episodio->numero}}</h3>
+            <h5>@if($episodio->assistido == 1)
+                <span class="lnr lnr-checkmark-circle text-success"> Assistido</span>
+            @else
+                <span class="lnr lnr-cross-circle text-danger"> Não Assistido</span>
+             @endif</h5>
+
         </div>
 
     @endforeach
