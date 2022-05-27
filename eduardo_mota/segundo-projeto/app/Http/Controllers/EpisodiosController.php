@@ -13,10 +13,11 @@ class EpisodiosController extends Controller
     {
         $episodios = $temporada->episodios;
         $temporadaId = $temporada->id;
+        $mensagem = $req->session()->get('mensagem');
 
         return view(
             'episodios.index',
-            compact('episodios', 'temporadaId')
+            compact('episodios', 'temporadaId', 'mensagem')
         );
     }
 
@@ -29,6 +30,7 @@ class EpisodiosController extends Controller
         });
 
         $temporada->push();
+        $req->session()->flash('mensagem','Episódios marcados como assistido');
         return redirect()->back();
     }
 }
