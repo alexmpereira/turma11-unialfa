@@ -13,9 +13,18 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-dark bg-light">
             <div class="container-fluid">
                <h1>@yield('cabecalho')</h1>
+               <a href="{{ route('series.index') }}" class="navbar-brand">Home</a>
+
+               @auth
+                  <a href="/sair" class="text-danger">Logout</a>     
+               @endauth
+
+               @guest
+                 <a href="/entrar">Enter</a>   
+               @endguest
             </div>
         </nav>
 
