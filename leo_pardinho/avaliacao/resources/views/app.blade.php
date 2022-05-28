@@ -13,23 +13,14 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-dark bg-light">
+        <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-               <h1>@yield('cabecalho')</h1>
-               <a href="{{ route('serie.index') }}" class="navbar-brand">Home</a>
-
-               @auth
-                  <a href="/sair" class="text-danger">Logout</a>     
-               @endauth
-
-               @guest
-                 <a href="/entrar">Enter</a>   
-               @endguest
+                <h1 class="navbar-brand" href="{{ route('funcionarios.index')}}">Trabalho 2°Bimestre</h1>
             </div>
         </nav>
 
         <div class="container">
-            @yield('conteudo')
+            @yield('content')
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
