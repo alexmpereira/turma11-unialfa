@@ -2,11 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesFormRequest;
+use App\Models\Episodio;
 use App\Models\Serie;
+use App\Models\Temporada;
+use App\Services\CriarSerie;
+use App\Services\DeletarSerie;
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +26,11 @@ class SeriesController extends Controller
     public function index(Request $request)
     {
         $series = Serie::get();
-
         $mensagem = $request->session()->get('mensagem');
-      
-        return view('series.index', compact('series','mensagem'));
+        
+       
+        return view('series.index',compact('series', 'mensagem'));
+        
     }
 
     /**
@@ -37,12 +49,20 @@ class SeriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request , CriarSerie $criarSerie)
     {
+
+       
       
-        $serie = Serie::create($request->all());
-        $request->session()->flash('mensagem', "Serie {$serie->id} Criada com sucesso {$serie->nome}");
+      
+        $serie = $criarSerie->save(
+            $request->nome,
+            $request->qtd_temporadas,
+            $request->ep_por_temporada
+        );
+        $request->session()->flash("mensagem", "Série {$serie->id}e suas temporadas e episodios criados criados com sucesso {$serie->nome}");
         return redirect()->route('series.index');
+
     }
 
     /**
@@ -85,13 +105,20 @@ class SeriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
-    {
-         Serie::destroy($request->id);
-         $request->session()->flash(
-             'mensagem', "Serie removida com sucesso"
-         );
-
+    public function destroy($id, Request $request, DeletarSerie $deletarSerie)
+    {   
+       $nomeSerie =  $deletarSerie->removerSerie($id);
+       
+        
+        $request->session()->flash("mensagem", "Serie $nomeSerie removida");
         return redirect()->route('series.index');
+    }
+
+    public function editaNome($id, Request $request)
+    {
+        $serie = Serie::find($id);
+        $novoNome = $request->nome;
+        $serie->nome = $novoNome;
+        $serie->save();
     }
 }
