@@ -105,6 +105,10 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache_'),
+=======
+    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache'),
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 
 ];

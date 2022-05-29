@@ -42,6 +42,10 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
+<<<<<<< HEAD
+=======
+            'auth_mode' => null,
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
         ],
 
         'ses' => [
@@ -58,7 +62,11 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
+<<<<<<< HEAD
             'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+=======
+            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -t -i'),
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
         ],
 
         'log' => [

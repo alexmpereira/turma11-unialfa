@@ -6,6 +6,10 @@ php:
   finder:
     not-name:
       - index.php
+<<<<<<< HEAD
+=======
+      - server.php
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 js:
   finder:
     not-name:

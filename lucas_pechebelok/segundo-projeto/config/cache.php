@@ -99,9 +99,15 @@ return [
     | Cache Key Prefix
     |--------------------------------------------------------------------------
     |
+<<<<<<< HEAD
     | When utilizing the APC, database, memcached, Redis, or DynamoDB cache
     | stores there might be other applications using the same cache. For
     | that reason, you may prefix every cache key to avoid collisions.
+=======
+    | When utilizing a RAM based store such as APC or Memcached, there might
+    | be other applications utilizing the same cache. So, we'll specify a
+    | value to get prefixed to all our keys so we can avoid collisions.
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
     |
     */
 

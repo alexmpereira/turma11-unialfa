@@ -100,6 +100,10 @@ return [
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
     'numeric' => 'The :attribute must be a number.',
+<<<<<<< HEAD
+=======
+    'password' => 'The password is incorrect.',
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
     'present' => 'The :attribute field must be present.',
     'prohibited' => 'The :attribute field is prohibited.',
     'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
