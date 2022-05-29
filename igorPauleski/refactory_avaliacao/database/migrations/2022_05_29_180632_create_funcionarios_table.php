@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFuncionariosTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,6 @@ class CreateFuncionariosTable extends Migration
     {
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nome', 100);
-            $table->string('cargo', 100);
-            $table->float('salario', 50);
-            $table->date('data_entrada');
             $table->timestamps();
         });
     }
@@ -32,4 +28,4 @@ class CreateFuncionariosTable extends Migration
     {
         Schema::dropIfExists('funcionarios');
     }
-}
+};

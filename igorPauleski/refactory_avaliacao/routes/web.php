@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/funcionarios',[FuncionariosController::class, 'index'])->name('funcionarios.index');
+
+Route::get('/funcionarios/{id}', [FuncionariosController::class, 'show'])->name('funcionarios.show');
