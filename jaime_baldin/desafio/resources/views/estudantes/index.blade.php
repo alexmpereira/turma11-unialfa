@@ -25,7 +25,7 @@
                         {{ $estudante->nascimento= date("d-m-Y", strtotime($estudante->nascimento));}}
                     </td>
                     <td >
-                        <a href="" class="btn btn-warning">
+                        <a href="{{ route('estudantes.edit', $estudante )}}" class="btn btn-warning">
                             Editar
                         </a>
                         <button >

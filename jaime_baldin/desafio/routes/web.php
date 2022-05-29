@@ -26,6 +26,9 @@ Route::get('/estudantes/{id}/edit', [EstudanteController::class, 'edit'])->name(
 
 
 Route::post('/estudantes', [EstudanteController::class, 'store'])->name('estudantes.store');
+Route::put('/estudantes/{id}', [EstudanteController::class, 'update'])->name('estudantes.update');
+Route::delete('/estudante/{id}', [EstudanteController::class, 'destroy'])->name('estudante.destroy');
+
 
 
 

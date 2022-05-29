@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estudante;
 use Illuminate\Http\Request;
+use App\Models\Filiais;
 
-class EstudanteController extends Controller
+class FiliaisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,11 @@ class EstudanteController extends Controller
      */
     public function index()
     {
-        $estudantes = Estudante::get();
-        return view('estudantes.index',[
-            'estudantes' => $estudantes
-        ]);
+        $filiais = Filiais::get();
+        return view('filiais.index', [
+            'filiais' => $filiais
+        ]
+    ); 
     }
 
     /**
@@ -27,7 +28,7 @@ class EstudanteController extends Controller
      */
     public function create()
     {
-        return view('estudantes.create');
+        //
     }
 
     /**
@@ -38,10 +39,7 @@ class EstudanteController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = $request->except('_token');
-        Estudante::create($dados);
-
-        return redirect('/estudantes');
+        //
     }
 
     /**
@@ -52,11 +50,11 @@ class EstudanteController extends Controller
      */
     public function show($id)
     {
-        $estudante = Estudante::find($id);
+        $filial = Filiais::find($id);
 
-        return view('estudantes.show', [
-            'estudante' => $estudante
-        ]);
+        return view('filiais.show', [
+             'filial' => $filial
+         ]);
     }
 
     /**
@@ -67,10 +65,7 @@ class EstudanteController extends Controller
      */
     public function edit($id)
     {
-        $estudante  =Estudante::find($id);
-        return view('estudantes.edit',[
-            'estudante' => $estudante
-        ]);
+        //
     }
 
     /**
