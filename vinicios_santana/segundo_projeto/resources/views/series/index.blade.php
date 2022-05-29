@@ -25,14 +25,17 @@
                         {{ $serie->nome }}
                     </td>
                     <td>
-                        <form action="{{ route('series.destroy', $serie) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit"
-                                onclick="return confirm('Are you sure you want to delete?')">
-                                Delete
-                            </button>
-                        </form>
+                        <span class="d-flex">
+                            <a class="btn btn-info btn-sm me-1" href="{{ route('temporadas.index', $serie->id) }}">Temporadas</a>
+                            <form action="{{ route('series.destroy', $serie) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit"
+                                    onclick="return confirm('Are you sure you want to delete?')">
+                                    Delete
+                                </button>
+                            </form>
+                        </span>
                     </td>
                 </tr>
             @endforeach
