@@ -24,6 +24,14 @@ Séries
             <td>
                 {{$serie->name}}
                 <a href="/series/{{$serie->id}}/temporadas" class="btn btn-info btn-sm mr-1">Temporadas</a>
+
+                <button
+                class="btn btn-info btn-sm mr1"
+                onclick="toggleInput({{$serie->id}})"
+                >
+                Editar nome
+                </button>
+
             </td>
 
             <td>
@@ -40,10 +48,14 @@ Séries
 
     </tbody>
 </table>
-<ul class="list-group">
+<script>
+    function toggleInput(serieId){
+        console.log(serieId);
+    }
+    //function editarSerie(serieId)
 
+</script>
 
-</ul>
 
 
 @endsection
