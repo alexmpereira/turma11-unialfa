@@ -3,7 +3,7 @@
 
 @section('content')
     <h1>Editar Estudante</h1>
-    <form action="" method="POST">
+    <form action="{{ route('estudantes.update', $estudante )}}" method="POST">
         @csrf
         @method('PUT')
         <div class="md-3">
