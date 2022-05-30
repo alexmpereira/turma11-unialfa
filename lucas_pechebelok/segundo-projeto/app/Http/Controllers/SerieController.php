@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+use App\Http\Requests\SeriesFormRequest;
+=======
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 use App\Models\Serie;
 use Illuminate\Http\Request;
 
@@ -12,11 +16,21 @@ class SerieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+    public function index(Request $request)
+    {
+
+        $series = Serie::get();
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('series.index', compact('series', 'mensagem'));
+=======
     public function index()
     {
         $series = Serie::get();
 
         return view('series.index', ['series' => $series]);
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
     }
 
     /**
@@ -35,10 +49,27 @@ class SerieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+    public function store(SeriesFormRequest $request)
+    {
+
+        $serie = Serie::create(['nome' => $request->nome]);
+
+        $qtdTemporadas = $request->qtd_temporadas;
+        for($i = 1; $i <= $qtdTemporadas; $i++) {
+            $temporada = $serie->temporadas()->create(['numero' => $i]);
+            for($j = 1; $j <= $request->ep_por_temporada; $j++) {
+                $temporada->episodios()->create(['numero' => $j]);
+            }
+        }
+
+        $request->session()->flash('mensagem', "Série {$serie->id} e suas temporadas e episodios criados com sucesso {$serie->nome}");
+=======
     public function store(Request $request)
     {
         $data = $request->except('_token');
         Serie::create($data);
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 
         return redirect('/series');
     }
@@ -83,9 +114,16 @@ class SerieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+    public function destroy(int $id, Request $request)
+    {
+        $serie = Serie::find($id);
+        $request->session()->flash('mensagem', "Série deletada com sucesso");
+=======
     public function destroy(int $id)
     {
         $serie = Serie::find($id);
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
         $serie->delete();
 
         return redirect('/series');

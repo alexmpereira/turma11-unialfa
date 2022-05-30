@@ -3,16 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+<<<<<<< HEAD
+use Illuminate\Http\Request;
+=======
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 
 class ClientController extends Controller
 {
     /**
+<<<<<<< HEAD
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+=======
      * Lista os Clientes
      *
      * @return View
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
      */
     public function index()
     {
@@ -24,9 +34,15 @@ class ClientController extends Controller
     }
 
     /**
+<<<<<<< HEAD
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+=======
      * Mostra a view de criar novos clientes
      *
      * @return View
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
      */
     public function create()
     {
@@ -34,6 +50,29 @@ class ClientController extends Controller
     }
 
     /**
+<<<<<<< HEAD
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $data = $request->except(('_token'));
+        Client::create($data);
+
+        return redirect('/clients');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(int $id)
+    {
+=======
      * Cria novo cliente.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -56,6 +95,7 @@ class ClientController extends Controller
     public function show(int $id)
     {
         //TODO buscar um único cliente
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
         $client = Client::find($id);
 
         return view('clients.show', [
@@ -64,6 +104,39 @@ class ClientController extends Controller
     }
 
     /**
+<<<<<<< HEAD
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+=======
      * Mostra o formulário de editar um determinado cliente.
      *
      * @param  int  $id
@@ -110,5 +183,6 @@ class ClientController extends Controller
         $client = Client::find($id);
         $client->delete();
         return redirect('/clients');
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
     }
 }

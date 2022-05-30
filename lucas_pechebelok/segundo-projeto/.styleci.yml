@@ -1,6 +1,9 @@
 php:
   preset: laravel
+<<<<<<< HEAD
+=======
   version: 8
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
   disabled:
     - no_unused_imports
   finder:

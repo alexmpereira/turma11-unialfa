@@ -4,7 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+<<<<<<< HEAD
+return new class extends Migration
+=======
 class CreateUsersTable extends Migration
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 {
     /**
      * Run the migrations.
@@ -33,4 +37,8 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+<<<<<<< HEAD
+};
+=======
 }
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f

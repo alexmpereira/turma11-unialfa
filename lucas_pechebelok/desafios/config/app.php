@@ -1,5 +1,10 @@
 <?php
 
+<<<<<<< HEAD
+use Illuminate\Support\Facades\Facade;
+
+=======
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 return [
 
     /*
@@ -54,7 +59,11 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+<<<<<<< HEAD
+    'asset_url' => env('ASSET_URL'),
+=======
     'asset_url' => env('ASSET_URL', null),
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 
     /*
     |--------------------------------------------------------------------------
@@ -188,6 +197,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
+    'aliases' => Facade::defaultAliases()->merge([
+        // ...
+    ])->toArray(),
+=======
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
@@ -231,5 +245,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+>>>>>>> dc6d2954af9e7d7d3fe3866d42dcdaed0a358a3f
 
 ];
