@@ -24,7 +24,7 @@ class EpisodiosController extends Controller
         });
 
         $temporada->push();
-
-        return redirect()->back();
+        $request->session()->flash('mensagem', );
+        return redirect()->back(); 
     }
 }
