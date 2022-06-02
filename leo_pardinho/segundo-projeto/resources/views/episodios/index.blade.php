@@ -24,5 +24,7 @@
         @endforeach
         </ul>
         <button class="btn btn-success mt-2">Salvar</button>
+        <a href="{{route ('serie.index') }}" class="btn btn-warning mt-2">Voltar</a>
     </form>
+   
 @endsection

@@ -14,6 +14,8 @@
                 {{ $temporada->getEpisodiosAssistidos()->count() }} / {{ $temporada->episodios->count() }}
             </span>
         </li>
+
     @endforeach
+    <a class="btn btn-warning mt-2" href="{{route ('serie.index')}}">Voltar</a>
 </ul>
 @endsection
