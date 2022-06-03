@@ -3,48 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Nette\Utils\Json;
 
 class BattleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($poke1, $poke2)
+    
+    public function startBattle($poke1, $poke2)
     {
         $firstPokemon = $this->getDataPokemom($poke1);
         $firstPokemonAttack = $this->getAttack($poke1, $firstPokemon["stats"]);
@@ -57,7 +22,13 @@ class BattleController extends Controller
 
         $batle = array_search(max($pokemonsMerge), $pokemonsMerge);
 
-        echo strtoupper($batle) . "- Venceu a batalha e matou o !"  .PHP_EOL ;
+        Log::info("batalha efetuado por $poke2 e $poke2 ");
+
+        return response(
+            $this->battle($poke1, $poke2, $pokemonsMerge), 200
+        );
+
+      
 
       
     }
@@ -85,37 +56,30 @@ class BattleController extends Controller
         return json_decode($firstPokemon->getBody()->getContents(), true);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function battle(string $poke1, string $poke2, $pokemons):array
     {
-        //
+        if ($pokemons[$poke1] > $pokemons[$poke2]) {
+           return $this->makeArrayWinner($poke1, $poke2);
+        }
+
+        if ($pokemons[$poke2] > $pokemons[$poke1]) {
+           return $this->makeArrayWinner($poke2, $poke1);
+        }
+        return $this->makeArrayDefault();
+       
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function makeArrayWinner(string $pokemon ,string $loser)
     {
-        //
+        return["winner"=> strtoupper($pokemon), "status"=> "Venceu a batalha matando o lixo do ".strtoupper($loser)];
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function makeArrayDefault()
     {
-        //
+        return ["status"=> "Arregaram"];
     }
+
+
+   
 }
