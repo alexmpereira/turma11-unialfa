@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/battle/{poke1}/{poke2}', [BattleController::class, 'show']);
+Route::get('/battle/{poke1}/{poke2}', [BattleController::class, 'startBattle']);
