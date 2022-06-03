@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    image: laravel
+    container_name: api_laravel
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html
