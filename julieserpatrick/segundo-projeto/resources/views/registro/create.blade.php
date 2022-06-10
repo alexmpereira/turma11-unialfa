@@ -9,7 +9,7 @@
 
         <div class="form-control">
             <label for="name">
-                Nome
+                Name
             </label>
             <input type="name" name="name" id="name" required class="form-control">
         </div>
@@ -29,8 +29,10 @@
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">
-            Registrar
+            Register
         </button>
     </form>
+
+   
 
 @endsection

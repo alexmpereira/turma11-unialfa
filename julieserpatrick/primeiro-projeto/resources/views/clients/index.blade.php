@@ -20,23 +20,18 @@
                 </td>
                 <td>{{$client->endereco}}</td>
                 <td>
-                    <a 
-                        class="btn btn-primary" 
-                        href="{{ route('clients.edit', $client) }}"
-                    >
+                    <a class="btn btn-primary" href="{{ route('clients.edit', $client) }}">
                         Atualizar
                     </a>
-
-                    <form action="{{ route('clients.destroy', $client) }}" method="POST">
+                    <form action="{{ route("clients.destroy", $client) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button
+                        <button 
                             class="btn btn-danger"
                             type="submit"
-                            onclick="return confirm('Tem certeza que deseja apagar?')"
-                        >
-                            Apagar
-                        </button>
+                            onclick="return confirm('tem certeza disso bro ??')"    
+                        >Delete
+                    </button>
                     </form>
                 </td>
             </tr>

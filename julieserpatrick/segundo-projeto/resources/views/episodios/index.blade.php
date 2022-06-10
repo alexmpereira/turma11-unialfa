@@ -21,7 +21,7 @@
         </ul>
 
         <button class="btn btn-primary mt-2">
-            Salvar
+            Save
         </button>
 
     </form>
