@@ -1,27 +1,27 @@
 @extends('app')
 @section('title', 'Series')
-@section('cabecalho','SESSAO DA MADRUGA')
+@section('cabecalho','Netflix')
 @section('content')
-    <h1> Series Disponiveis</h1>
+    <h1>Disponible series</h1>
 
     @if(!empty($mensagem))
     <div class="alert alert-success">
         {{ $mensagem }}
     </div>
     @endif
-
+    
     <table class="table">
         <thead>
             <tr>
-                <th scope="col 10">Nome</th>
-                <th scope="col 10">Acoes</th>
+                <th scope="col 10">Name</th>
+                <th scope="col 10">Actions</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
             @foreach ($series as $serie)
-
+         
                 <td class="list-group-item d-flex justify-content-between align-items-center">
                     {{ $serie->nome }}
                 </td>
@@ -33,12 +33,12 @@
                             type="submit"
                             onclick="return confirm('you sure')"
                     >
-                            Excluir
+                            Delete
                     </button>
                 </form>
-                <span class="d-flex">
+                <span class="d-flex"> 
                         <a href="series/{{ $serie->id }}/temporadas" class="btn btn-info btn-sm ml-1">
-                            Temporadas
+                            Season
                         </a>
                 </span>
 
@@ -46,7 +46,7 @@
                     <input type="text" class="form-control"  id="input-nome-serie-{{ $serie->id }}" value="{{ $serie->nome }}">
                     <div class="input-group-append">
                         <button class="btn btn-warning" onclick="editarSerie({{ $serie->id }})">
-                            Salvar
+                            Save
                         </button>
                         @csrf
                     </div>
@@ -54,17 +54,17 @@
 
 
                 <button class="btn btn-info btn-sm mr-1" onclick="toggleInput({{ $serie->id }})">
-                    Editar Nome
+                    Edit Name
                 </button>
                 </td>
 
             </tr>
             @endforeach
         </tbody>
-
+       
     </table>
 
-    <a class="btn btn-dark mb-2" href="{{ route('series.create') }}">Adicionar nova serie</a>
+    <a class="btn btn-dark mb-2" href="{{ route('series.create') }}">Add new serie</a>
 
     <script>
         function toggleInput(serieId){
@@ -73,7 +73,7 @@
 
             if (nomeSerieEl.hasAttribute('hidden')) {
                 nomeSerieEl.removeAttribute('hidden');
-
+               
             } else {
                 inputSerieEl.hidden = true;
             }

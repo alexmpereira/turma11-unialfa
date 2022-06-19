@@ -19,11 +19,11 @@
                <a href="{{ route('series.index') }}" class="navbar-brand">Home</a>
 
                @auth
-                  <a href="/sair" class="text-danger">Sair</a>
+                  <a href="/sair" class="text-danger">Logout</a>     
                @endauth
 
                @guest
-                 <a href="/entrar">Entrar</a>
+                 <a href="/entrar">Enter</a>   
                @endguest
             </div>
         </nav>

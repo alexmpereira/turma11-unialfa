@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+
 
 class ClientController extends Controller
 {
     /**
-     * Lista os Clientes
+     * Display a listing of the resource.
      *
      * @return View
      */
@@ -24,7 +25,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Mostra a view de criar novos clientes
+     * show view of create new client.
      *
      * @return View
      */
@@ -34,7 +35,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Cria novo cliente.
+     * create a new client.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return RedirectResponse
@@ -48,7 +49,7 @@ class ClientController extends Controller
     }
 
     /**
-     * Mostra um cliente especifico
+     * Display the specified resource as only client.
      *
      * @param  int  $id
      * @return View
@@ -64,27 +65,28 @@ class ClientController extends Controller
     }
 
     /**
-     * Mostra o formulário de editar um determinado cliente.
+     * Show the form for editing the specified client.
      *
      * @param  int  $id
      * @return View
      */
     public function edit(int $id)
-    {
+    {   
         //TODO consultar o cliente
         $client = Client::find($id);
         //TODO vamos enviar a pessoa para uma view
-        return view('clients.edit', [
-            'client' => $client
+        return view('clients.edit',[
+            'client'=> $client
         ]);
+
     }
 
     /**
-     * Realiza a edição dos dados de um cliente
+     * Update the specified client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return RedirectResponse
+     * @return Redirect
      */
     public function update(Request $request, $id)
     {
@@ -95,15 +97,14 @@ class ClientController extends Controller
             'endereco' => $request->endereco,
             'observacao' => $request->observacao
         ]);
-
         return redirect('/clients');
     }
 
     /**
-     * Remove um cliente.
+     * Remove the specified client from storage.
      *
      * @param  int  $id
-     * @return RedirectResponse
+     * @return Redirect
      */
     public function destroy(int $id)
     {
