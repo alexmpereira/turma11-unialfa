@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testando api</title>
+</head>
+<body>
+    <script>
+        var url ="http://127.0.0.1:8000/api/battle/mewtwo/pikachu"
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, false);
+        xhttp.send();
+        
+        console.log(xhttp.responseText);
+    </script>
+    
+</body>
+</html>
