@@ -2,15 +2,19 @@
 
 use Unialfa\Phpxdebug\Adapters\Cliente;
 
-require_once __DIR__ .'/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
-$arrayTeste = [
-    "teste" => "aa"
+$mockCliente = [
+    "nome"  => "teste",
+    "idade" => 32,
+    "email" => "teste@gmail.com",
+    "cpf"   => "12345678910",
+
 ];
 
-$cliente = new Cliente();
+$cliente = new Cliente($mockCliente);
 
-echo $cliente->hello();
+echo json_encode($cliente->imprimeDados());
 
 
 //echo phpinfo();
