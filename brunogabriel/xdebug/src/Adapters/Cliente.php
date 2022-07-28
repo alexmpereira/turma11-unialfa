@@ -2,10 +2,20 @@
 
 namespace Unialfa\Phpxdebug\Adapters;
 
+use Unialfa\Phpxdebug\Domain\Cliente as DomainCliente;
+
 class Cliente
 {
-    public function hello()
+    protected DomainCliente $entity;
+
+    public function __construct(array $cliente)
     {
-        return "Olá turma!!";
+        $this->entity = new DomainCliente();
+        $this->entity->populaCliente($cliente);
+    }
+
+    public function imprimeDados()
+    {
+        return $this->entity->imprimeDadosCliente();
     }
 }
