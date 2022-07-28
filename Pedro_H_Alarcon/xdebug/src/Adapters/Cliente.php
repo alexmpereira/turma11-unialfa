@@ -2,48 +2,21 @@
 
 namespace UniaAlfa\Phpxdebug\Adapters;
 
+use UniaAlfa\Phpxdebug\Domain\Cliente as DomainCliente;
+
 class Cliente
 {
 
-    protected string $nome;
-    protected string $email;
-    protected string $idade;
-    protected string $cpf;
-    
+    protected DomainCliente $entity;
 
-    public function populaCliente(array $cliente) 
+    public function __construct(array $cliente)
     {
-        $this->nome = $cliente['nome'];
-        $this->email = $cliente['email'];
-        $this->idade = $cliente['idade'];
-        $this->cpf = $cliente['cpf'];
+        $this->entity = new DomainCliente();
+        $this->entity->populaCliente($cliente);
     }
 
-    private function setNome($nome)
+    public function imprimeDadosCliente()
     {
-        $this->nome = $nome;
-
-        return $this;
-    }
-
-    private function setEmail($email)
-    {
-        $this->nome = $email;
-
-        return $this;
-    }
-
-    private function setIdade($idade)
-    {
-        $this->nome = $idade;
-
-        return $this;
-    }
-
-    private function setCpf($cpf)
-    {
-        $this->nome = $cpf;
-
-        return $this;
+        return $this->entity->imprimeDadosCliente();
     }
 }
