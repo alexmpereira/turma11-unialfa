@@ -4,8 +4,13 @@ use Unialfa\Phpxdebug\Adapters\Cliente;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$cliente = new Cliente();
+$mockCliente = [
+    "nome" => "Teste",
+    "idade" => 32,
+    "email" => "teste@gmail.com",
+    "cpf" => "12345678910"
+];
 
-echo $cliente->hello();
+$cliente = new Cliente($mockCliente);
 
-echo phpinfo();
+echo json_encode($cliente->imprimeDados());
