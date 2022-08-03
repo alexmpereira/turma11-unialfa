@@ -3,6 +3,7 @@
 namespace Unialfa\Phpxdebug\Domain;
 
 use Exception;
+use Unialfa\Phpxdebug\Domain\Endereco as DomainEndereco;
 
 class Cliente
 {
@@ -10,13 +11,15 @@ class Cliente
     protected string $email;
     protected string $idade;
     protected string $cpf;
+    protected DomainEndereco $endereco;
 
-    public function populaCliente(array $cliente)
+    public function populaCliente(array $cliente, DomainEndereco $endereco)
     {
         $this->setNome($cliente["nome"]);
         $this->setEmail($cliente["email"]);
         $this->setIdade($cliente["idade"]);
         $this->setCpf($cliente["cpf"]);
+        $this->endereco = $endereco;
     }
 
     public function imprimirDadosCliente()
@@ -25,7 +28,8 @@ class Cliente
             "nome"=> $this->nome,
             "email"=> $this->email,
             "cpf"=> $this->cpf,
-            "idade"=> $this->idade
+            "idade"=> $this->idade,
+            "endereco" => $this->endereco->imprimeEndereco(),
         ];
     }
   
