@@ -8,14 +8,16 @@ class Cliente
     protected string $email;
     protected int $idade;
     protected string $cpf;
+    protected Endereco $endereco;
 
 
-    public function populaCliente(array $cliente)
+    public function populaCliente(array $cliente, Endereco $endereco)
     {
         $this->setNome($cliente["nome"]);
         $this->setEmail($cliente["email"]);
         $this->setIdade($cliente["idade"]);
         $this->setCpf($cliente["cpf"]);
+        $this->setEndereco($endereco);
     }
 
     public function imprimeDadosCliente()
@@ -24,7 +26,8 @@ class Cliente
             "nome" => $this->nome,
             "email" => $this->email,
             "idade" => $this->idade,
-            "cpf" => $this->cpf
+            "cpf" => $this->cpf,
+            "endereco" => $this->endereco->imprimeEndereco()
         ];
     }
 
