@@ -13,9 +13,14 @@ $mockCliente = [
     "cpf" => "123456789"
 ];
 
+$mockEndereco = [
+    "endereco" => "Rua Teste",
+    "numero" => "123",
+    "cidade" => "Teste"
+];
 
-
-$cliente = new Cliente($mockCliente);
+$endereco = new Endereco($mockEndereco);
+$cliente = new Cliente($mockCliente, $endereco);
 
 echo json_encode($cliente->imprimeDados());
 
