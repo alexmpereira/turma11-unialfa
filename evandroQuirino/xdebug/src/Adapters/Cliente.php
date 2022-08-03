@@ -1,10 +1,20 @@
 <?php
-namespace Unialfa\Phpxdebug\Adapters;
 
+namespace Unialfa\PhpXDebug\Adapters;
+
+use Unialfa\PhpXDebug\Domain\Cliente as DomainCliente;
 class Cliente
 {
-    public function hello()
+    protected DomainCliente $entity;
+
+    public function __construct(array $cliente)
     {
-        return "ola mundo!!";
+        $this->entity = new DomainCliente();
+        $this->entity->populaCliente($cliente);
+    }
+
+    public function imprimeDados()
+    {
+        return $this->entity->imprimeDadosCliente();
     }
 }
