@@ -35,7 +35,7 @@ class Client
             "idade"=> $this->idade,
             "cpf"=> $this->cpf,
             "endereco"=> $this->endereco->imprimeEndereco(),
-            "tipoPagamento"=> $this->pagamento->setTipoPagamanto()
+            "tipoPagamento"=> $this->tipoPagamento->imprimePagamento()
         ];
     }
 
