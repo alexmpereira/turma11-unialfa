@@ -12,9 +12,9 @@ class Endereco
 
     public function __construct(array $endereco)
     {
-        $this->setCidade($endereco['cidade']);
-        $this->setEndereco($endereco['endereco']);
-        $this->setNumero($endereco['numero']);
+        $this->setCidade($endereco["cidade"]);
+        $this->setEndereco($endereco["endereco"]);
+        $this->setNumero($endereco["numero"]);
     }
 
     public function imprimiEndereco():array
