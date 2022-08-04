@@ -1,16 +1,10 @@
 <?php
 
-use Unialfa\Phpxdebug\Adapters\Cliente;
+//Tell, dont't ask.
 
-require_once __DIR__ .'/vendor/autoload.php';
+use Unialfa\Phpxdebug\Domain\Carro;
 
-$mockCliente = [
-    "nome" => "Teste",
-    "idade" => 32,
-    "email" => "teste@gmail.com",
-    "cpf" => "12345678910"
-];
+require_once __DIR__ . '/vendor/autoload.php';
 
-$cliente = new Cliente($mockCliente);
-
-echo json_encode($cliente->imprimeDados());
+$carro = new Carro();
+$carro->liga();
