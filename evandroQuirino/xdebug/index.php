@@ -1,33 +1,25 @@
 <?php 
-// ini_set('display_errors', 1);
 
-use Unialfa\PhpXDebug\Adapters\Cliente;
-use Unialfa\PhpXDebug\Domain\Endereco;
+//Tell, dont ask
 
+use Unialfa\PhpXDebug\Domain\Carro;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+$carro = new Carro();
+$carro->liga();
 
-$mockCliente = [
-    "nome" => "João",
-    "idade" => 31,    
-    "email" => "teste@gmail.com",
-    "cpf" => "123456789"
-];
+// class Carro
+// {
+//     public bool $ligado = false;
+// }
 
-$mockEndereco = [
-    "endereco" => "Rua Unialfa",
-    "cidade" => "Umuarama",
-    "numero" => 6655
-];
+// $carro = new Carro();
 
-
-$endereco = new Endereco($mockEndereco);
-$cliente = new Cliente($mockCliente, $endereco);
-
-echo json_encode($cliente->imprimeDados());
+// if(!$carro->ligado){
+//     $carro->ligado = true;
+// }else {
+//     throw new Exception("Algo deu errado");
+// }
 
 
-// var_dump($arrayTeste);exit;
-
-// echo phpinfo();
