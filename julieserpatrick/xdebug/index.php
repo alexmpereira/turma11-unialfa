@@ -1,6 +1,7 @@
 <?php
 
 use Unialfa\Phpxdebug\Adapters\Cliente;
+use Unialfa\Phpxdebug\Domain\Endereco;
 
 require_once __DIR__ .'/vendor/autoload.php';
 
@@ -11,6 +12,13 @@ $mockCliente = [
     "cpf" => "12345678910"
 ];
 
-$cliente = new Cliente($mockCliente);
+$mockEndereco = [
+    "endereco" => "Rua Unialfa",
+    "cidade" => "Umuaramra",
+    "numero" => 1004
+];
+
+$endereco = new Endereco($mockEndereco);
+$cliente = new Cliente($mockCliente, $endereco);
 
 echo json_encode($cliente->imprimeDados());
