@@ -1,19 +1,39 @@
-@extends('layout')
+@extends('app')
 
-@section('cabecalho')
-Adicionar Série
-@endsection
+@section('title', 'Criar Série')
 
-@section('conteudo')
-<a href="{{ route('series.index') }}" class="btn btn-dark mb-2" style="margin-top: 15px">Voltar</a>
-    <div class="form-group">
-         <form action="{{ route('series.store') }}" method="POST">
-            @csrf
+@section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-        <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome" id="nome">
-    </div>
+    <h1>Criar Série</h1>
+    <form action="{{ route('series.store') }}" method="POST">
+        @csrf
+        <div class="row mb-5">
+            <div class="col col-8">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite seu nome">
+            </div>
+            <div class="col col-2">
+                <label for="qtd_temporadas">Nº de Temporadas</label>
+                <input type="number" class="form-control" name="qtd_temporadas" id="qtd_temporadas">
+            </div>
+            <div class="col col-2">
+                <label for="ep_por_temporada">Epº por Temporada</label>
+                <input type="number" class="form-control" name="ep_por_temporada" id="ep_por_temporada">
+            </div>
+        </div>
 
-    <button class="btn btn-primary" style="margin-top: 15px">Adicionar</button>
-</form>
+        <div class="d-flex">
+            <button class="btn btn-success">Enviar</button>
+            <a href="{{ route('series.index') }}" class="btn btn-danger ms-auto">Cancelar</a>
+        </div>
+    </form>
 @endsection
