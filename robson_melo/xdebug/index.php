@@ -1,23 +1,27 @@
 <?php
 
-use Unialfa\Phpxdebug\Adapters\Client;
+//Tell, don´t ask
+
+
+use Unialfa\Phpxdebug\Domain\Carro;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$mockCliente = [
-    "nome" => "Teste",
-    "email" => "teste@gmail.com",
-    "idade" => 32,
-    "cpf" => "12345678910"
-];
-//$testdebug = JJ;
+$carro = new Carro();
+$carro->liga();
 
 
-$cliente = new Client($mockCliente);
 
-echo json_encode($cliente->imprimeDados());
+// class Carro
+// {
+//     public bool $ligado = false;
+// }
 
+// $carro = new Carro();
+// if (!$carro->ligado){
+//     $carro->ligado = true;
+// } else {
+//     throw new Exception("Algo deu errado");
+// }
 
-//var_dump($mockCliente); exit;
-
-// echo phpinfo();
+//print_r($carro);
