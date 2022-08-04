@@ -1,6 +1,8 @@
 <?php
 
 use Unialfa\Phpxdebug\Adapters\Client;
+use Unialfa\Phpxdebug\Domain\Endereco;
+use Unialfa\Phpxdebug\Domain\Pagamento;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -10,10 +12,21 @@ $mockCliente = [
     "idade" => 32,
     "cpf" => "12345678910"
 ];
-//$testdebug = JJ;
+
+$mockEndereco = [
+    "endereco"=> "Rua Unialfa",
+    "cidade" => "Umuarama",
+    "numero" => 1004
+];
+
+$mockPagamento = [
+    "tipoPagamento"=> "Cartão de Credito"
+];
 
 
-$cliente = new Client($mockCliente);
+$endereco= new Endereco($mockEndereco);
+$pagamento= new Pagamento($mockPagamento);
+$cliente = new Client($mockCliente, $endereco, $pagamento);
 
 echo json_encode($cliente->imprimeDados());
 
