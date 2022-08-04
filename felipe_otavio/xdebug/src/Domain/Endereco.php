@@ -21,6 +21,7 @@ class Endereco
             "cidade" => $this->cidade,
             "endereco" => $this->endereco,
             "numero" => $this->numero
+            
         ];
     }
 
