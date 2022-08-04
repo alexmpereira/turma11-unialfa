@@ -6,7 +6,7 @@ use Exception;
 use Unialfa\Phpxdebug\Domain\Endereco as DomainEndereco;
 
 class Cliente
-{
+{   
     protected string $nome;
     protected string $email;
     protected string $idade;
