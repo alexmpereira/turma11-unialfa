@@ -1,24 +1,10 @@
 <?php
 
-use Unialfa\Phpxdebug\Adapters\Cliente;
-use Unialfa\Phpxdebug\Domain\Endereco;
+//Tell, dont't ask.
 
-require_once __DIR__ .'/vendor/autoload.php';
+use Unialfa\Phpxdebug\Domain\Carro;
 
-$mockCliente = [
-    "nome" => "Teste",
-    "idade" => 32,
-    "email" => "teste@gmail.com",
-    "cpf" => "12345678910"
-];
+require_once __DIR__ . '/vendor/autoload.php';
 
-$mockEndereco = [
-    "endereco" => "Rua Unialfa",
-    "cidade" => "Umuaramra",
-    "numero" => 1004
-];
-
-$endereco = new Endereco($mockEndereco);
-$cliente = new Cliente($mockCliente, $endereco);
-
-echo json_encode($cliente->imprimeDados());
+$carro = new Carro();
+$carro->liga();
