@@ -59,4 +59,9 @@ capaz de retornar todas as séries
 - Fazer a rota com o método post, para gravar com o método store
 - Adaptar o formulário para quando clicar no botão salvar no banco
 
+# Referencias para o conteúdo de arquitetura
+- [In Clean Architecture, where to put validation logic?](https://ikenox.info/blog/where-to-put-validation-in-clean-architecture/#:~:text=Just%20as%20Clean%20Architecture%20splits,differrent%20depending%20on%20its%20context.)
+- [REST, GraphQL, Clean Architecture e TypeScript com Rodrigo Manguinho // Live #69](https://www.youtube.com/watch?v=P0gpCCA8ZPs)
+- [Uncle Bob](http://cleancoder.com/products)
+Loading...
 
