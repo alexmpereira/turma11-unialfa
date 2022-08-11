@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Serie;
 use Illuminate\Http\Request;
+use App\Http\Requests\SeriesFormRequest;
 
 class SeriesController extends Controller
 {
@@ -12,12 +13,11 @@ class SeriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $series = Serie::get();
-        return view('series.index', [
-            "series" => $series
-        ]);
+        $mensagem = $request->session()->get('mensagem');
+        return view('series.index', compact('series', 'mensagem'));
     }
 
     /**
@@ -36,12 +36,12 @@ class SeriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SeriesFormRequest $request)
     {
-        $dados = $request->except('_token');
-        Serie::create($dados);
+        $serie = Serie::create($request->all());
+        $request = $request->session()->flash('mensagem', "Serie $serie->nome criada com sucesso");
 
-        return redirect('/series');
+        return redirect()->route('series.index');
     }
 
     /**
@@ -84,10 +84,10 @@ class SeriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $serie = Serie::find($id);
-        $serie->delete();
-        return redirect('/series');
+        Serie::destroy($request->id);
+        $request->session()->flash('mensagem', "serie removida com sucesso");
+        return redirect()->route('series.index');
     }
 }

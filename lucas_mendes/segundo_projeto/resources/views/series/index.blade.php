@@ -5,6 +5,13 @@ Series
 @endsection
 
 @section('conteudo')
+
+@if (!empty($mensagem))
+    <div class="alert alert-success text-center">
+        {{$mensagem}}
+    </div>
+@endif
+
     <a href="{{route('series.create')}}" class="btn btn-dark mb-2">Adicionar</a>
 
     <ul class="list-group">
