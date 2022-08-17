@@ -16,4 +16,7 @@ class Mailer implements Email
         array $destinatario,
         array $copiaPara = []
     ): bool
+    {
+        return true;
+    }
 }
