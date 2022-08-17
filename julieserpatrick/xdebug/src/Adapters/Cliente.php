@@ -1,22 +1,19 @@
 <?php
 
-namespace Unialfa\Phpxdebug\Adapters;
-use Unialfa\Phpxdebug\Domain\Cliente as DomainCliente;
-use Unialfa\Phpxdebug\Domain\Endereco;
+namespace Unialfa\PhpXDebug\Adapters;
 
-require_once __DIR__ . 'vendor/autoload/dir';
-
-class Cliente 
+use Unialfa\PhpXDebug\Domain\Cliente as DomainCliente;
+class Cliente
 {
     protected DomainCliente $entity;
 
     public function __construct(array $cliente, Endereco $endereco)
     {
-      $this->entity = new DomainCliente();
-      $this->entity->populaCliente($cliente, $endereco);
+        $this->entity = new DomainCliente();
+        $this->entity->populaCliente($cliente, $endereco);
     }
 
-    public function imprimeDados() 
+    public function imprimeDados()
     {
         return $this->entity->imprimeDadosCliente();
     }

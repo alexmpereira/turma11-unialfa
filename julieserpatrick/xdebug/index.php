@@ -1,10 +1,6 @@
-<?php
-
-//Tell, dont't ask.
-
-use Unialfa\Phpxdebug\Domain\Carro;
-
+<?php 
+use Unialfa\PhpXDebug\Domain\Carro;
 require_once __DIR__ . '/vendor/autoload.php';
 
 $carro = new Carro();
-$carro->liga();
+$carro->ligar();

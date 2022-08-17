@@ -1,18 +1,30 @@
 <?php 
 
-namespace Unialfa\Phpxdebug\Domain;
+namespace Unialfa\PhpXDebug\Domain;
 
-use Exception;
-
-class Carro 
+class Carro
 {
-    public bool $ligado = false;
-
-    public function liga()
+    protected bool $ligado;
+    
+    public function __construct()
     {
-        if($this->ligado) {
-        throw new Exception("Algo deu errado");
-        }
-    $this->ligado = true;
+        $this->ligado = false;
+    }
+    
+    public function ligar()
+    {
+        if(!$this->ligado) {
+            echo "Carro já está ligado";
+        } 
+    }
+    
+    public function desligar()
+    {
+        $this->ligado = false;
+    }
+    
+    public function getLigado()
+    {
+        return $this->ligado;
     }
 }

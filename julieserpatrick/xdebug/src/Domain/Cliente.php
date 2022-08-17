@@ -1,17 +1,15 @@
-<?php 
+<?php
 
-namespace Unialfa\Phpxdebug\Domain;
-
-use Exception;
-
+namespace Unialfa\PhpXDebug\Domain;
 
 class Cliente
 {
     protected string $nome;
     protected string $email;
-    protected string $idade;
+    protected int $idade;
     protected string $cpf;
     protected Endereco $endereco;
+
 
     public function populaCliente(array $cliente, Endereco $endereco)
     {
@@ -19,7 +17,7 @@ class Cliente
         $this->setEmail($cliente["email"]);
         $this->setIdade($cliente["idade"]);
         $this->setCpf($cliente["cpf"]);
-        $this->endereco = $endereco; 
+        $this->setEndereco($endereco);
     }
 
     public function imprimeDadosCliente()
@@ -29,35 +27,41 @@ class Cliente
             "email" => $this->email,
             "idade" => $this->idade,
             "cpf" => $this->cpf,
-            "endereco" => $this->endereco
+            "endereco" => $this->endereco->imprimeEndereco()
         ];
     }
 
+
     private function setNome($nome)
     {
-        if(empty($nome)){
-            throw new Exception("O campo não pode ser vazio!");
+        if (empty($nome)) {
+            throw new Exception("Nome não pode ser vazio");
         }
 
-        $this->nome = $ $nome;
+        $this->nome = $nome;
+
         return $this;
     }
 
     private function setEmail($email)
     {
-        $this->email = $ $email;
+
+        $this->email = $email;
+
         return $this;
     }
-    
+
     private function setIdade($idade)
     {
-        $this->idade = $ $idade;
+        $this->idade = $idade;
+
         return $this;
     }
 
     private function setCpf($cpf)
     {
-        $this->cpf = $ $cpf;
+        $this->cpf = $cpf;
+
         return $this;
     }
 }

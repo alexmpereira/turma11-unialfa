@@ -1,11 +1,11 @@
 {
     "version": "0.2.0",
-    "configuration": [
+    "configurations": [
         {
             "name": "Xdebug",
             "type": "php",
             "request": "launch",
-            "port": 9003
+            "port": 9003        
         }
     ]
 }

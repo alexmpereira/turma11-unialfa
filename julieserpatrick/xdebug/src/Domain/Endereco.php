@@ -1,28 +1,24 @@
-<?php
+<?php 
 
 namespace Unialfa\Phpxdebug\Domain;
 
-class Endereco
+class Endereco 
 {
     protected string $cidade;
     protected string $endereco;
     protected string $numero;
 
-    public function __construct(array $endereco)
+    public function __contruct(array $endereco)
     {
-        $this->setCidade($endereco["cidade"]);
-        $this->setEndereco($endereco["endereco"]);
-        $this->setNumero($endereco["numero"]);
+        $this->cidade = $endereco['cidade'];
+        $this->endereco = $endereco['endereco'];
+        $this->numero = $endereco['numero'];
     }
-
-    public function imprimeEndereco(): array
+    public function setNumero($numero)
     {
-        return [
-            "cidade" => $this->cidade,
-            "endereco" => $this->endereco,
-            "numero" => $this->numero
-            
-        ];
+        $this->numero = $numero;
+
+        return $this;
     }
 
     public function setCidade($cidade)
@@ -39,10 +35,12 @@ class Endereco
         return $this;
     }
 
-    public function setNumero($numero)
+    public function imprimeEndereco()
     {
-        $this->numero = $numero;
-
-        return $this;
+        return [
+            "cidade" => $this->cidade,
+            "endereco" => $this->endereco,
+            "numero" => $this->numero
+        ];
     }
 }
