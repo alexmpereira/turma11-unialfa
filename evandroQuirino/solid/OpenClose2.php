@@ -1,11 +1,11 @@
 <?php
 
-// Open Closed Principle Violation
-interface Trabalhavel
+interface Trabalhavel 
 {
     public function work();
 }
 
+// Open Closed Principle Violation
 class Programador implements Trabalhavel
 {
     public function work()
@@ -30,6 +30,3 @@ class GerenciamentoProjeto
     }
 }
 
-$programador = new Programador();
-$gerenciamento = new GerenciamentoProjeto();
-echo $gerenciamento->process($programador);
