@@ -37,7 +37,6 @@ class F15 extends VeiculoAereo
 {
 
 }
-
 class Piloto 
 {
     protected $veculo;
