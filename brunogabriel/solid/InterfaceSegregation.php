@@ -6,8 +6,8 @@ interface AtaquesPadrao {
     public function pular();
 }
 
-interface AtaquesMágicos extends AtaquesPadrao {
-    public function usarMagia(AtaquesMágicos $alvo);
+interface AtaquesMagicos extends AtaquesPadrao {
+    public function usarMagia(AtaquesMagicos $alvo);
 }
 
 interface AtaquesArco extends AtaquesPadrao{
@@ -32,8 +32,8 @@ class Arqueiro implements AtaquesArco {
   public function pular() {}
 }
 
-class Mago implements AtaquesMágicos {
-  public function usarMagia(AtaquesMágicos $alvo) {}
+class Mago implements AtaquesMagicos {
+  public function usarMagia(AtaquesMagicos $alvo) {}
   public function atacar() {}
   public function defender() {}
   public function pular() {}
