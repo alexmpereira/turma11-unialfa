@@ -1,0 +1,10 @@
+{
+    "name": "unialfa/phpxdebug",
+    "description": "projeto exemplo de xdebug",
+    "autoload": {
+        "psr-4": {
+            "Unialfa\\Phpxdebug\\":"src/"
+        }
+    },
+    "require": {}
+}
