@@ -1,0 +1,12 @@
+{
+    "name": "andrey/dddunialfa",
+    "type": "project",
+    "require": {
+        "php": "8.1.0"
+    },
+    "autolad": {
+        "psr-4": {
+            "App\\": "src\\"
+        }
+    }
+}
