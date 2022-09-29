@@ -15,6 +15,7 @@ interface UsuarioDeEscudo extends Personagem {
 
 
 
+
 class Cavaleiro implements UsuarioDeEscudo {
   public function atacar(Personagem $alvo) {}
   public function defender() {}
