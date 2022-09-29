@@ -2,4 +2,4 @@
 
     require_once __DIR__ . '/../vendor/autoload.php';
 
-    echo "Olá Mundo";
+    echo "Hello Word";
