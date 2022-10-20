@@ -1,5 +1,12 @@
 <?php
 
+use App\Contabilidade\Domain\Entity\Cliente;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-print_r("Hello World");
+$cliente = new Cliente(
+    'Bruno',
+    'Guimaraes',
+    20,
+    '10805551964',
+);
