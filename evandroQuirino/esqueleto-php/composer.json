@@ -1,5 +1,5 @@
 {
-    "name": "robson/dddunialfa",
+    "name": "evandro/dddunialfa",
     "type": "project",
     "require": {
         "php": "8.1.0"
