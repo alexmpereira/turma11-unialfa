@@ -1,0 +1,15 @@
+{
+    "name": "alexmorgado/poo",
+    "autoload": {
+        "psr-4": {
+            "Unialfa\\Poo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alexmpereira",
+            "email": "alexmpprog@gmail.com"
+        }
+    ],
+    "require": {}
+}
