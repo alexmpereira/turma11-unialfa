@@ -1,8 +1,16 @@
 {
     "name": "alexmorgado/poo",
+    "scripts": {
+        "test": "phpunit --colors --bootstrap vendor/autoload.php tests"
+    },
     "autoload": {
         "psr-4": {
             "Unialfa\\Poo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests\\"
         }
     },
     "authors": [
@@ -11,5 +19,8 @@
             "email": "alexmpprog@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    }
 }
