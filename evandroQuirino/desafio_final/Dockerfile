@@ -73,18 +73,6 @@ RUN composer install --ignore-platform-reqs
 
 EXPOSE 80
 
-RUN pecl install xdebug && docker-php-ext-enable xdebug
-RUN echo "xdebug.mode = debug" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.start_with_request = yes" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.client_host = host.docker.internal" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.client_port = 9000" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.cli_color = 2" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.dump.* = *" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.dump_globals = true" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.force_display_errors = 1" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.log = /var/www/html/log/xdebug.log" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini" \
-&& echo "xdebug.log_level = 7" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
-
 ADD .docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN chmod +x /usr/local/bin/*
