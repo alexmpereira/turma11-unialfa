@@ -1,8 +1,8 @@
 version: "3.5"
 services:
   app:
-    container_name: ddd-unialfa
-    image: unialfa-php
+    container_name: poo-php
+    image: poo-php
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -12,9 +12,37 @@ services:
       - XDEBUG_START_WITH_REQUEST=yes
       - XDEBUG_DISCOVER_CLIENT_HOST=false
     ports:
-      - "8091:80"
+      - "8082:80"
     networks:
       - minha-rede
+  
+  postgres:
+    container_name: postgres
+    image: postgres:11
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeme
+      PGDATA: /data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - minha-rede
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - ./.docker/data/pgadmin:/root/.pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - minha-rede
+    restart: unless-stopped
 
 networks:
   minha-rede:
