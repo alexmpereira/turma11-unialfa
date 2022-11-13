@@ -87,8 +87,8 @@ RUN echo "xdebug.mode = debug" >> "/usr/local/etc/php/conf.d/docker-php-ext-xdeb
 
 ADD .docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
-#RUN chmod +x /usr/local/bin/*
+RUN chmod +x /usr/local/bin/*
 
 CMD ["nginx", "-g", "daemon off;"]
 
-#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
