@@ -1,9 +1,9 @@
 {
-    "name": "mota/desafiofinal",
+    "name": "izupay/payment",
     "type": "project",
     "require": {
         "php-ds/php-ds": "v1.2.0",
-        "phpunit/phpunit": "v7.5.16",
+        "phpunit/phpunit": "^9.5",
         "php": "8.1.0"
     },
     "autoload": {
