@@ -1,0 +1,14 @@
+{
+    "name": "mota/desafiofinal",
+    "type": "project",
+    "require": {
+        "php-ds/php-ds": "v1.2.0",
+        "phpunit/phpunit": "v7.5.16",
+        "php": "8.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src\\"
+        }
+    }
+}
