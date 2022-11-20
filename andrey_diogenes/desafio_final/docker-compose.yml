@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   app:
-    container_name: ddd-unialfa
+    container_name: projeto-final-unialfa
     image: unialfa-php
     build:
       context: .
