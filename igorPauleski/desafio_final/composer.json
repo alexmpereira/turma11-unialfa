@@ -1,0 +1,12 @@
+{
+    "name": "robson/DesafioFinalunialfa",
+    "type": "project",
+    "require": {
+        "php": "8.1.0"
+    },
+    "autoLoad": {
+        "psr-4": {
+            "App\\": "src\\"
+        }
+    }
+}
