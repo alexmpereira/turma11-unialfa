@@ -1,0 +1,85 @@
+server {
+	listen   80; ## listen for ipv4; this line is default and implied
+	listen   [::]:80 default ipv6only=on; ## listen for ipv6
+
+	root /var/www/html/public;
+	index index.php index.html index.htm;
+
+	# Make site accessible from http://localhost/
+	server_name _;
+	
+	# Disable sendfile as per https://docs.vagrantup.com/v2/synced-folders/virtualbox.html
+	sendfile off;
+
+	# Add stdout logging
+	error_log /dev/stdout info;
+	access_log /dev/stdout;
+
+        # Add option for x-forward-for (real ip when behind elb)
+        #real_ip_header X-Forwarded-For;
+        #set_real_ip_from 172.16.0.0/12;
+
+    real_ip_header X-Real-IP;
+    real_ip_recursive on;
+    set_real_ip_from 172.18.48.0/20;
+
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to index.html
+		 try_files $uri $uri/ /index.php?q=$uri&$args;
+	}
+
+	error_page 404 /404.html;
+        location = /404.html {
+                root /var/www/errors;
+                internal;
+        }
+
+
+	# pass the PHP scripts to FastCGI server listening on socket
+	#
+	location ~ \.php$ {
+        proxy_set_header  Host $host;
+		proxy_set_header  X-Real-IP $remote_addr;
+		proxy_set_header  X-Forwarded-Proto https;
+		proxy_set_header  X-Forwarded-For $remote_addr;
+		proxy_set_header  X-Forwarded-Host $remote_addr;
+
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        fastcgi_read_timeout 1200;
+        include fastcgi_params;
+	}
+
+    location ~* \.(jpg|jpeg|gif|png|css|js|ico|webp|tiff|ttf|svg)$ {
+            expires           5d;
+    }
+
+	# deny access to . files, for security
+	#
+	location ~ /\. {
+    		log_not_found off; 
+    		deny all;
+	}
+        
+	location ^~ /.well-known {
+                allow all;
+                auth_basic off;
+    }
+
+
+	location ~ ^/(status|ping)$ {
+        access_log off;
+        fastcgi_pass 127.0.0.1:9000;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
+    }
+
+	location /nginx_status {
+    	stub_status;
+    	server_tokens on;
+  	}
+
+}
