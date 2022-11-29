@@ -1,0 +1,22 @@
+version: "3.5"
+services:
+  app:
+    container_name: ddd-unialfa
+    image: unialfa-php
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - XDEBUG_START_WITH_REQUEST=yes
+      - XDEBUG_DISCOVER_CLIENT_HOST=false
+    ports:
+      - "8091:80"
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
+    name: minha-rede
+    driver: bridge
